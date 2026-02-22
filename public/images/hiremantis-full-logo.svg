@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 200" fill="none">
+  <!-- Logo Icon -->
+  <g transform="translate(10, 10) scale(0.3515625)">
+    <rect width="512" height="512" rx="112" fill="#0F172A" class="dark-mode-bg" />
+    <g transform="translate(126, 136)">
+      <rect x="0" y="0" width="44" height="240" rx="22" fill="#10B981" />
+      <rect x="216" y="0" width="44" height="240" rx="22" fill="#10B981" />
+      <rect x="22" y="150" width="216" height="44" fill="#10B981" />
+      <path d="M22 22 L130 130 L238 22" stroke="#38BDF8" stroke-width="44" stroke-linecap="round" stroke-linejoin="round" />
+    </g>
+  </g>
+  
+  <!-- Text -->
+  <text x="220" y="115" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="72" fill="#0F172A" class="dark-mode-text">Hiremantis</text>
+  <text x="225" y="160" font-family="system-ui, -apple-system, sans-serif" font-weight="500" font-size="24" fill="#64748B" class="dark-mode-subtext">AI Interview Platform</text>
+
+  <style>
+    @media (prefers-color-scheme: dark) {
+      .dark-mode-bg { fill: #020617; }
+      .dark-mode-text { fill: #F8FAFC; }
+      .dark-mode-subtext { fill: #94A3B8; }
+    }
+  </style>
+</svg>

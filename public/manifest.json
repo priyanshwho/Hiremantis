@@ -1,6 +1,6 @@
 {
-  "name": "Hirelytics",
-  "short_name": "Hirelytics",
+  "name": "Hiremantis - AI Recruitment Platform",
+  "short_name": "Hiremantis",
   "description": "AI-driven interview and recruitment platform",
   "start_url": "/",
   "display": "standalone",
