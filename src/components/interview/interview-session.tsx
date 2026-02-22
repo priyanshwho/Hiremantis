@@ -611,7 +611,7 @@ export function InterviewSession({
                 className="shadow-lg shadow-primary/10"
               />
               <div className="text-center">
-                <h3 className="font-semibold">Hirelytics AI</h3>
+                <h3 className="font-semibold">Hiremantis AI</h3>
                 <p className="text-xs text-muted-foreground">Interview Assistant</p>
               </div>
 

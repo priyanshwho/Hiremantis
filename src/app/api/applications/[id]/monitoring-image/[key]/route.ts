@@ -17,7 +17,7 @@ const s3Client = new S3Client({
   },
 });
 
-const bucketName = process.env.AWS_BUCKET_NAME || 'hirelytics';
+const bucketName = process.env.AWS_BUCKET_NAME || 'Hiremantis';
 
 export async function GET(
   req: NextRequest,

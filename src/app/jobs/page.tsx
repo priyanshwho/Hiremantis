@@ -4,7 +4,7 @@ import { JobsList } from '@/components/jobs/jobs-list';
 import { AnimatedBackground } from '@/components/ui/animated-background';
 
 export const metadata: Metadata = {
-  title: 'Jobs | Hirelytics',
+  title: 'Jobs | Hiremantis',
   description: 'Find your next opportunity with our extensive job listings',
 };
 

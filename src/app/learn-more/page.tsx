@@ -116,8 +116,8 @@ export default function LearnMorePage() {
             <Image
               height={200}
               width={650}
-              src="/images/hirelytics-full-logo.svg"
-              alt="Hirelytics"
+              src="/images/hiremantis-full-logo.svg"
+              alt="Hiremantis"
               className="h-20 md:h-24 w-auto max-w-full dark:invert-[0.15] dark:brightness-110 mb-6"
               priority
             />
@@ -144,7 +144,7 @@ export default function LearnMorePage() {
                 className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 mb-4 text-sm font-medium text-primary"
               >
                 <BookOpen size={16} />
-                {t('discoverHirelytics')}
+                {t('discoverHiremantis')}
               </motion.div>
 
               <motion.h1
@@ -153,7 +153,7 @@ export default function LearnMorePage() {
               >
                 {t('learnMoreTitle')}{' '}
                 <span className="bg-gradient-to-r from-primary via-blue-500 to-purple-500 bg-clip-text text-transparent animate-gradient">
-                  Hirelytics
+                  Hiremantis
                 </span>
               </motion.h1>
 

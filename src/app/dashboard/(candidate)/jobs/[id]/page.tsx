@@ -24,12 +24,12 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
   try {
     const job = await getJobByUrlId(id);
     return {
-      title: `${job.title} at ${job.companyName} | Candidate Dashboard | Hirelytics`,
+      title: `${job.title} at ${job.companyName} | Candidate Dashboard | Hiremantis`,
       description: job.description?.slice(0, 160),
     };
   } catch {
     return {
-      title: 'Job Not Found | Candidate Dashboard | Hirelytics',
+      title: 'Job Not Found | Candidate Dashboard | Hiremantis',
       description: "The job listing you're looking for doesn't exist or has been removed.",
     };
   }

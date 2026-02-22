@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'hirelytics.t3.storage.dev',
+        hostname: 'hiremantis.t3.storage.dev',
       },
       {
         protocol: 'https',

@@ -204,7 +204,7 @@ export function useInterviewChat({ applicationId }: UseInterviewChatProps): UseI
         // Fallback message if initialization fails
         const fallbackMessage: Message = {
           id: Date.now().toString(),
-          text: `Hello! I'm Hirelytics AI, your interviewer for the position. Let's start with you introducing yourself briefly.`,
+          text: `Hello! I'm Hiremantis AI, your interviewer for the position. Let's start with you introducing yourself briefly.`,
           sender: 'ai',
           timestamp: new Date(),
         };
@@ -385,7 +385,7 @@ export function useInterviewChat({ applicationId }: UseInterviewChatProps): UseI
       // Add error message
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: "Sorry, this is Hirelytics AI. I encountered an error. Let's continue our conversation. What were you saying?",
+        text: "Sorry, this is Hiremantis AI. I encountered an error. Let's continue our conversation. What were you saying?",
         sender: 'ai',
         timestamp: new Date(),
       };
@@ -471,7 +471,7 @@ export function useInterviewChat({ applicationId }: UseInterviewChatProps): UseI
       // Fallback message if restart fails
       const fallbackMessage: Message = {
         id: Date.now().toString(),
-        text: `Hello, I'm Hirelytics AI. Let's restart our interview. Please introduce yourself briefly.`,
+        text: `Hello, I'm Hiremantis AI. Let's restart our interview. Please introduce yourself briefly.`,
         sender: 'ai',
         timestamp: new Date(),
       };

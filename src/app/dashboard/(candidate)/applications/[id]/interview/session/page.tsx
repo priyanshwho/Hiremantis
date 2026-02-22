@@ -23,7 +23,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
     if (!application) {
       return {
-        title: 'Interview Session | Hirelytics',
+        title: 'Interview Session | Hiremantis',
         description: 'AI-powered interview session',
       };
     }
@@ -31,12 +31,12 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     const job = await getJobById(application.jobId);
 
     return {
-      title: `Interview Session for ${job.title} | Hirelytics`,
+      title: `Interview Session for ${job.title} | Hiremantis`,
       description: `Live AI-powered interview session for the ${job.title} position at ${job.companyName}`,
     };
   } catch {
     return {
-      title: 'Interview Session | Hirelytics',
+      title: 'Interview Session | Hiremantis',
       description: 'AI-powered interview session',
     };
   }

@@ -22,7 +22,7 @@ export async function uploadAudioToS3(
     const s3Client = createS3Client();
 
     // Get bucket name from environment or use default
-    const bucketName = process.env.AWS_BUCKET_NAME || 'hirelytics';
+    const bucketName = process.env.AWS_BUCKET_NAME || 'Hiremantis';
 
     // Generate a unique filename with timestamp
     const timestamp = new Date().getTime();
@@ -62,7 +62,7 @@ export async function getAudioSignedUrl(s3Key: string, s3Bucket?: string): Promi
     const s3Client = createS3Client();
 
     // Get bucket name from parameter or use default
-    const bucketName = s3Bucket || process.env.AWS_BUCKET_NAME || 'hirelytics';
+    const bucketName = s3Bucket || process.env.AWS_BUCKET_NAME || 'Hiremantis';
 
     // Generate pre-signed URL
     const command = new GetObjectCommand({

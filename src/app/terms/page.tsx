@@ -123,8 +123,8 @@ export default function TermsPage() {
               </h2>
               <p className="text-muted-foreground">
                 {t('sections.contactInformation.content')}{' '}
-                <a href="mailto:legal@hirelytics.ai" className="text-primary hover:underline">
-                  legal@hirelytics.ai
+                <a href="mailto:legal@Hiremantis.ai" className="text-primary hover:underline">
+                  legal@Hiremantis.ai
                 </a>
                 .
               </p>

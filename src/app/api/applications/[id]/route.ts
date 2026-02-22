@@ -92,7 +92,7 @@ export async function GET(req: NextRequest, { params }: { params: Promise<{ id: 
     // Generate signed URLs for files stored in S3
     const appData = application.toJSON();
     const s3Client = createS3Client();
-    const bucketName = appData.s3Bucket || process.env.AWS_S3_BUCKET || 'hirelytics-uploads';
+    const bucketName = appData.s3Bucket || process.env.AWS_S3_BUCKET || 'Hiremantis-uploads';
 
     // Process monitoring images if they exist
     if (appData.monitoringImages && appData.monitoringImages.length > 0) {
@@ -206,7 +206,7 @@ export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id
 
     // Process S3 stored files to generate signed URLs
     const s3Client = createS3Client();
-    const bucketName = appData.s3Bucket || process.env.AWS_S3_BUCKET || 'hirelytics-uploads';
+    const bucketName = appData.s3Bucket || process.env.AWS_S3_BUCKET || 'Hiremantis-uploads';
 
     // Process monitoring images if they exist
     if (appData.monitoringImages && appData.monitoringImages.length > 0) {

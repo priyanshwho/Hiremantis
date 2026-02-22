@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Hirelytics - AI Interview Platform for Modern Hiring',
+  title: 'Hiremantis - AI Interview Platform for Modern Hiring',
   description:
     'Our AI-driven platform transforms the recruitment process from job posting to candidate selection. Automate interviews, analyze resumes, and make data-driven hiring decisions.',
   icons: {
@@ -32,17 +32,17 @@ export const metadata: Metadata = {
   // manifest: "/manifest.json",
   // themeColor: "#0C4A6E",
   // openGraph: {
-  //   title: "Hirelytics - AI Interview Platform for Modern Hiring",
+  //   title: "Hiremantis - AI Interview Platform for Modern Hiring",
   //   description:
   //     "Transform your hiring process with AI-powered interviews and candidate analysis",
-  //   images: ["/images/hirelytics-logo.svg"],
+  //   images: ["/images/hiremantis-logo.svg"],
   // },
   // twitter: {
   //   card: "summary_large_image",
-  //   title: "Hirelytics - AI Interview Platform for Modern Hiring",
+  //   title: "Hiremantis - AI Interview Platform for Modern Hiring",
   //   description:
   //     "Transform your hiring process with AI-powered interviews and candidate analysis",
-  //   images: ["/images/hirelytics-logo.svg"],
+  //   images: ["/images/hiremantis-logo.svg"],
   // },
 };
 

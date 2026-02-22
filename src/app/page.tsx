@@ -151,8 +151,8 @@ export default function Home() {
             <Image
               width={650}
               height={200}
-              src="/images/hirelytics-full-logo.svg"
-              alt="Hirelytics"
+              src="/images/hiremantis-full-logo.svg"
+              alt="Hiremantis"
               className="h-20 md:h-24 w-auto max-w-full dark:invert-[0.15] dark:brightness-110 mb-6"
               priority
             />
@@ -706,7 +706,7 @@ export default function Home() {
             {[
               {
                 quote:
-                  'Hirelytics has revolutionized our recruitment process. We&apos;ve reduced our time-to-hire by 40% and found better quality candidates.',
+                  'Hiremantis has revolutionized our recruitment process. We&apos;ve reduced our time-to-hire by 40% and found better quality candidates.',
                 name: 'Sarah Johnson',
                 role: 'HR Director',
                 company: 'TechCorp',
@@ -725,7 +725,7 @@ export default function Home() {
                   'As a candidate, I love how the platform matched me with jobs that truly aligned with my skills and career goals. The AI interview was surprisingly conversational.',
                 name: 'Michael Chen',
                 role: 'Software Engineer',
-                company: 'Hired via Hirelytics',
+                company: 'Hired via Hiremantis',
                 color: 'green',
               },
             ].map((testimonial, index) => (

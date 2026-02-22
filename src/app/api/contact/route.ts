@@ -45,9 +45,9 @@ export async function POST(req: NextRequest) {
       try {
         // Send confirmation email to user
         const userSend = await resend.emails.send({
-          from: 'Hirelytics <contact@hirelytics.app>',
+          from: 'Hiremantis <contact@Hiremantis.app>',
           to: email,
-          subject: 'Thank you for contacting Hirelytics',
+          subject: 'Thank you for contacting Hiremantis',
           html: await renderContactConfirmationEmail({
             name,
             message,
@@ -57,7 +57,7 @@ export async function POST(req: NextRequest) {
         // Send notification email to admin
         if (process.env.ADMIN_EMAIL) {
           const adminSend = await resend.emails.send({
-            from: 'Hirelytics <notification@hirelytics.app>',
+            from: 'Hiremantis <notification@Hiremantis.app>',
             to: process.env.ADMIN_EMAIL,
             subject: 'New Contact Form Submission',
             html: await renderContactNotificationEmail({

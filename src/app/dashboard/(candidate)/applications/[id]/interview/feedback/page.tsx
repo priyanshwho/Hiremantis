@@ -18,7 +18,7 @@ type Props = {
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: `Interview Feedback | Hirelytics`,
+    title: `Interview Feedback | Hiremantis`,
   };
 }
 

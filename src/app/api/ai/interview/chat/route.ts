@@ -122,7 +122,7 @@ export async function POST(req: NextRequest) {
 
     // Create system prompt with job and resume context
     const systemPrompt = `
-      You are Hirelytics AI, a professional AI interviewer conducting an interview for the ${
+      You are Hiremantis AI, a professional AI interviewer conducting an interview for the ${
         job.title
       } position at ${job.companyName}. 
       The candidate has applied with the following resume: "${

@@ -17,7 +17,7 @@ interface WaitlistConfirmationEmailProps {
 
 export const WaitlistConfirmationEmail = ({ name }: WaitlistConfirmationEmailProps) => {
   return (
-    <BaseEmailTemplate previewText="Thanks for joining the Hirelytics waitlist!">
+    <BaseEmailTemplate previewText="Thanks for joining the Hiremantis waitlist!">
       <Section
         style={{
           backgroundColor: '#4f46e5',
@@ -42,7 +42,7 @@ export const WaitlistConfirmationEmail = ({ name }: WaitlistConfirmationEmailPro
         <Text style={textLg}>Hi {name},</Text>
 
         <Text style={textBase}>
-          Thank you for your interest in Hirelytics! We&apos;re excited to have you on our waitlist.
+          Thank you for your interest in Hiremantis! We&apos;re excited to have you on our waitlist.
         </Text>
 
         <Section style={highlightedBox}>
@@ -56,7 +56,7 @@ export const WaitlistConfirmationEmail = ({ name }: WaitlistConfirmationEmailPro
         </Section>
 
         <Heading as="h2" style={headingMd}>
-          Why Choose Hirelytics?
+          Why Choose Hiremantis?
         </Heading>
 
         <Row style={{ paddingTop: '12px', paddingBottom: '12px' }}>
@@ -97,8 +97,8 @@ export const WaitlistConfirmationEmail = ({ name }: WaitlistConfirmationEmailPro
           </Column>
         </Row>
 
-        <Button href="https://hirelytics.app/learn-more" style={buttonBase}>
-          Learn More About Hirelytics
+        <Button href="https://Hiremantis.app/learn-more" style={buttonBase}>
+          Learn More About Hiremantis
         </Button>
 
         <Hr style={{ borderColor: '#e5e7eb', margin: '24px 0' }} />
@@ -111,9 +111,9 @@ export const WaitlistConfirmationEmail = ({ name }: WaitlistConfirmationEmailPro
         <Text style={textBase}>
           Best regards,
           <br />
-          <strong>Sumanta Kabiraj</strong>
+          <strong>Raghav Gupta &amp; Priyanshu</strong>
           <br />
-          <em>Founder, CEO, Hirelytics</em>
+          <em>Co-Founders, Hiremantis</em>
         </Text>
       </Section>
     </BaseEmailTemplate>

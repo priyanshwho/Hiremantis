@@ -81,8 +81,8 @@ export default function AboutPage() {
               className="relative h-[250px] rounded-lg overflow-hidden shadow-lg"
             >
               <Image
-                src="/images/hirelytics-full-logo.svg"
-                alt="Hirelytics Mission"
+                src="/images/hiremantis-full-logo.svg"
+                alt="Hiremantis Mission"
                 fill
                 className="object-cover"
               />

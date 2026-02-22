@@ -33,7 +33,7 @@ export function JobShareButtons({
   const [isAlertOpen, setIsAlertOpen] = useState(false);
 
   // Get domain from environment variable or fallback
-  const domain = process.env.NEXT_PUBLIC_DOMAIN || 'hirelytics.app';
+  const domain = process.env.NEXT_PUBLIC_DOMAIN || 'Hiremantis.app';
 
   // Create the share URL for this specific job
   const baseUrl = typeof window !== 'undefined' ? window.location.origin : `https://${domain}`;

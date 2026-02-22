@@ -148,7 +148,7 @@ export function InterviewDetailsDialog({
                     <AIInterviewerIcon size={20} />
                     <div>
                       <p className="font-medium">AI Interviewer</p>
-                      <p className="text-sm text-muted-foreground">Hirelytics AI</p>
+                      <p className="text-sm text-muted-foreground">Hiremantis AI</p>
                     </div>
                   </div>
                 </div>

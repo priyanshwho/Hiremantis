@@ -20,7 +20,7 @@ interface BaseEmailProps {
 export const BaseEmailTemplate = ({
   previewText,
   children,
-  footerText = `© ${new Date().getFullYear()} Hirelytics. All rights reserved.`,
+  footerText = `© ${new Date().getFullYear()} Hiremantis. All rights reserved.`,
 }: BaseEmailProps) => {
   return (
     <Html>
@@ -30,10 +30,10 @@ export const BaseEmailTemplate = ({
         <Container style={container}>
           <Section style={header}>
             <Img
-              src="https://hirelytics.app/images/hirelytics-full-logo.svg"
+              src="https://Hiremantis.app/images/hiremantis-full-logo.svg"
               width="120"
               height="36"
-              alt="Hirelytics"
+              alt="Hiremantis"
               style={logo}
             />
           </Section>

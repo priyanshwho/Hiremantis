@@ -31,10 +31,10 @@ export default function BookDemoPage() {
           <p className="text-muted-foreground text-lg">{t('book.description')}</p>
         </div>
         <Cal
-          calLink="sumanta-kabiraj/hirelytics-demo"
+          calLink="raghav-gupta+56/hiremantis"
           style={{ width: '100%', height: '800px' }}
           config={{
-            name: 'Hirelytics Demo',
+            name: 'Hiremantis Demo',
             hideEventTypeDetails: '0',
             layout: 'month_view',
           }}
