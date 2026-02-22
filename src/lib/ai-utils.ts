@@ -5,25 +5,32 @@ import { generateText } from 'ai';
  * Generates text using Google's Gemini model via Vercel AI SDK
  *
  * @param prompt - The prompt to send to the model
- * @param model - The specific Gemini model to use (defaults to gemini-2.0-flash-lite)
+ * @param model - The specific Gemini model to use (defaults to gemini-3-flash-preview)
  * @returns The generated text response
  */
 export async function generateGeminiText(
   prompt: string,
-  model = 'gemini-2.0-flash-lite'
+  model = 'gemini-3-flash-preview'
 ): Promise<string> {
   try {
     const { text } = await generateText({
-      model: google(model as 'gemini-2.0-flash-lite'),
+      model: google(model as 'gemini-3-flash-preview'),
       prompt: prompt,
     });
 
     return text;
   } catch (error) {
     console.error('Error generating text with Gemini:', error);
-    throw new Error(
-      `Failed to generate text: ${error instanceof Error ? error.message : String(error)}`
-    );
+
+    // Check if it's a quota error
+    const errorMessage = error instanceof Error ? error.message : String(error);
+    if (errorMessage.includes('quota') || errorMessage.includes('exceeded')) {
+      throw new Error(
+        'QUOTA_EXCEEDED: Your Gemini API free tier quota has been exceeded. Please wait for the quota to reset or upgrade your API key at https://aistudio.google.com/'
+      );
+    }
+
+    throw new Error(`Failed to generate text: ${errorMessage}`);
   }
 }
 
