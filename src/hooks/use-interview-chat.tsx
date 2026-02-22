@@ -72,6 +72,11 @@ export function useInterviewChat({ applicationId }: UseInterviewChatProps): UseI
 
         if (!response.ok) {
           const errorData = await response.json().catch(() => ({}));
+          if (response.status === 429 || errorData.error === 'API Quota Exceeded') {
+            throw new Error(
+              `QUOTA_EXCEEDED: ${errorData.message || 'The AI service quota has been exceeded. Please try again in a few minutes.'}`
+            );
+          }
           throw new Error(errorData.error || 'Failed to initialize interview');
         }
 
@@ -199,7 +204,16 @@ export function useInterviewChat({ applicationId }: UseInterviewChatProps): UseI
         }
       } catch (error) {
         console.error('Error initializing interview:', error);
-        toast.error('Failed to initialize interview. Using fallback greeting.');
+        const errorMsg = error instanceof Error ? error.message : String(error);
+
+        if (errorMsg.includes('QUOTA_EXCEEDED')) {
+          toast.error(
+            'AI API quota exceeded. The interview will start with a fallback greeting. Please try again later.',
+            { duration: 6000 }
+          );
+        } else {
+          toast.error('Failed to initialize interview. Using fallback greeting.');
+        }
 
         // Fallback message if initialization fails
         const fallbackMessage: Message = {
@@ -332,6 +346,11 @@ export function useInterviewChat({ applicationId }: UseInterviewChatProps): UseI
 
       if (!response.ok) {
         const errorData = await response.json().catch(() => ({}));
+        if (response.status === 429 || errorData.error === 'API Quota Exceeded') {
+          throw new Error(
+            `QUOTA_EXCEEDED: ${errorData.message || 'The AI service quota has been exceeded. Please try again in a few minutes.'}`
+          );
+        }
         throw new Error(errorData.error || 'Failed to get interview response');
       }
 
@@ -380,12 +399,22 @@ export function useInterviewChat({ applicationId }: UseInterviewChatProps): UseI
       }
     } catch (error) {
       console.error('Error in interview chat:', error);
-      toast.error('Failed to get AI response');
+      const errMsg = error instanceof Error ? error.message : String(error);
 
-      // Add error message
+      if (errMsg.includes('QUOTA_EXCEEDED')) {
+        toast.error('AI API quota exceeded. Please wait a minute and try again.', {
+          duration: 6000,
+        });
+      } else {
+        toast.error('Failed to get AI response');
+      }
+
+      // Add error message visible in the chat
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
-        text: "Sorry, this is Hiremantis AI. I encountered an error. Let's continue our conversation. What were you saying?",
+        text: errMsg.includes('QUOTA_EXCEEDED')
+          ? 'I apologize, the AI service is currently at capacity. Please wait a moment and try sending your message again.'
+          : "Sorry, this is Hirelytics AI. I encountered an error. Let's continue our conversation. What were you saying?",
         sender: 'ai',
         timestamp: new Date(),
       };

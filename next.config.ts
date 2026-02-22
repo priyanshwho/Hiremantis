@@ -12,6 +12,14 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 't3.storage.dev',
+      },
+      // {
+      //   protocol: 'https',
+      //   hostname: 't3.storage.dev',
+      // },
+      {
+        protocol: 'https',
         hostname: 'eu2.contabostorage.com',
       },
     ],

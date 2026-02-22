@@ -350,7 +350,7 @@ export async function POST(req: NextRequest) {
       }
     } else {
       // Normal response flow
-      response = await generateGeminiText(finalPrompt, 'gemini-2.0-flash-lite');
+      response = await generateGeminiText(finalPrompt, 'gemini-3-flash-preview');
     }
 
     // Determine next interview state based on AI response and current state

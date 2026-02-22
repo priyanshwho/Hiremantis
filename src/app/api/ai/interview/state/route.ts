@@ -53,9 +53,8 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json({
       success: true,
-      isCompleted:
-        interviewState?.currentPhase === 'completed' ||
-        interviewState?.currentPhase === 'interrupted',
+      // Only mark as completed when the interview actually finished - NOT when interrupted
+      isCompleted: interviewState?.currentPhase === 'completed',
       hasEvaluation: !!application.interviewEvaluation,
       interviewState,
       questionsAndAnswers: completedQA,

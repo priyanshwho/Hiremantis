@@ -79,6 +79,7 @@ export default async function InterviewSessionPage(props: Props) {
 
     // Check if interview is already completed
     const interviewState = application.interviewState;
+    // Note: 'interrupted' is NOT treated as completed here — the init route will auto-restart it
     if (interviewState?.currentPhase === 'completed') {
       // Redirect to feedback page
       return (

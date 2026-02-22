@@ -77,6 +77,11 @@ export function InterviewSession({
   const [isWindowFocused, setIsWindowFocused] = useState(true);
   const [alerts, setAlerts] = useState<string[]>([]);
   const [isTimerActive, setIsTimerActive] = useState(false);
+  // Prevent hydration mismatch from browser extension DOM injection
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
   // Track interview state
   const { interviewState } = useInterviewState(applicationId);
   const monitoringIntervalRef = useRef<NodeJS.Timeout | undefined>(undefined);
@@ -627,26 +632,30 @@ export function InterviewSession({
               isMobile ? 'h-1/2' : 'flex-1'
             } bg-black flex items-center justify-center`}
           >
-            <div className="absolute top-3 left-3 bg-black/50 backdrop-blur-sm px-3 py-1 rounded-md text-sm font-medium text-white/90 shadow-md border border-white/10">
-              You
-            </div>
-            <Webcam
-              ref={videoRef}
-              audio={true}
-              muted={true}
-              videoConstraints={{
-                deviceId: selectedVideoDevice ? { exact: selectedVideoDevice } : undefined,
-                facingMode: 'user',
-              }}
-              audioConstraints={{
-                deviceId: selectedAudioDevice ? { exact: selectedAudioDevice } : undefined,
-              }}
-              className="h-full w-full object-cover"
-            />
-            {!videoEnabled && (
-              <div className="absolute inset-0 bg-black flex items-center justify-center">
-                <VideoOff className="h-16 w-16 text-muted-foreground/50" />
-              </div>
+            {mounted && (
+              <>
+                <div className="absolute top-3 left-3 bg-black/50 backdrop-blur-sm px-3 py-1 rounded-md text-sm font-medium text-white/90 shadow-md border border-white/10">
+                  You
+                </div>
+                <Webcam
+                  ref={videoRef}
+                  audio={true}
+                  muted={true}
+                  videoConstraints={{
+                    deviceId: selectedVideoDevice ? { exact: selectedVideoDevice } : undefined,
+                    facingMode: 'user',
+                  }}
+                  audioConstraints={{
+                    deviceId: selectedAudioDevice ? { exact: selectedAudioDevice } : undefined,
+                  }}
+                  className="h-full w-full object-cover"
+                />
+                {!videoEnabled && (
+                  <div className="absolute inset-0 bg-black flex items-center justify-center">
+                    <VideoOff className="h-16 w-16 text-muted-foreground/50" />
+                  </div>
+                )}
+              </>
             )}
           </div>
         </div>

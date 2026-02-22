@@ -38,7 +38,19 @@ export async function POST(req: NextRequest) {
     // Check if there's existing chat history and we're not forcing a restart
     const existingChatHistory = application.interviewChatHistory || [];
 
-    if (existingChatHistory.length > 0 && !forceRestart) {
+    // Auto-force restart if the previous session was interrupted (e.g. timer expired)
+    // so the candidate always gets a clean fresh interview
+    const previousState = application.interviewState || {};
+    const wasInterrupted = previousState.currentPhase === 'interrupted';
+    const effectiveForceRestart = forceRestart || wasInterrupted;
+
+    if (wasInterrupted) {
+      console.log(
+        '[Interview Init] Previous session was interrupted, auto-restarting fresh interview'
+      );
+    }
+
+    if (existingChatHistory.length > 0 && !effectiveForceRestart) {
       // Check if the interview is already completed
       const interviewState = application.interviewState || {};
       const isCompleted = interviewState.currentPhase === 'completed';
@@ -204,7 +216,23 @@ export async function POST(req: NextRequest) {
     `;
 
     // Generate initial greeting and question
-    const initialGreeting = await generateGeminiText(initPrompt, 'gemini-2.0-flash-lite');
+    let initialGreeting: string;
+    try {
+      initialGreeting = await generateGeminiText(initPrompt, 'gemini-3-flash-preview');
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : String(error);
+      if (errorMessage.includes('QUOTA_EXCEEDED') || errorMessage.includes('quota')) {
+        return NextResponse.json(
+          {
+            error: 'API Quota Exceeded',
+            message:
+              'The Gemini API quota has been exceeded. Please try again in a few minutes or contact the administrator.',
+          },
+          { status: 429 }
+        );
+      }
+      throw error;
+    }
 
     // Create a system message with job description and complete parsed resume data
     const systemMessage = `
@@ -243,6 +271,17 @@ About: ${application.parsedResume.about || 'No summary available'}
     : 'Resume data not available.'
 }
     `.trim();
+
+    // If we're force-restarting an interrupted session, clear the old state + history first
+    if (wasInterrupted && !forceRestart) {
+      await JobApplication.findByIdAndUpdate(applicationId, {
+        $set: {
+          interviewChatHistory: [],
+          interviewState: { currentPhase: 'introduction' },
+        },
+      });
+      console.log('[Interview Init] Cleared interrupted session state for fresh start');
+    }
 
     // Get the current application to ensure we have the most up-to-date state
     const currentApplication = await JobApplication.findById(applicationId);

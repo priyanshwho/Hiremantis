@@ -2,7 +2,7 @@ import './globals.css';
 
 import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import { getLocale } from 'next-intl/server';
 import NextTopLoader from 'nextjs-toploader';
 import { Toaster } from 'sonner';
@@ -11,13 +11,9 @@ import { FloatingControls } from '@/components/floating-controls';
 import MicrosoftClarity from '@/lib/microsoft-clarity';
 import PostHogScript from '@/lib/posthog-script';
 import RootProvider from '@/provider/root-provider';
-const geistSans = Geist({
-  variable: '--font-geist-sans',
-  subsets: ['latin'],
-});
 
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
+const inter = Inter({
+  variable: '--font-inter',
   subsets: ['latin'],
 });
 
@@ -54,7 +50,7 @@ export default async function RootLayout({
   const locale = await getLocale();
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${inter.variable} antialiased`}>
         <NextTopLoader color="hsl(var(--primary))" />
         <RootProvider>
           <div className="relative flex min-h-screen flex-col">
