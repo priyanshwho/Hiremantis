@@ -3,19 +3,43 @@ import { NextRequest, NextResponse } from 'next/server';
 
 import { auth } from '@/auth';
 
-// Create S3 client for server-side operations
-const s3Client = new S3Client({
-  region: process.env.AWS_REGION!,
-  endpoint: process.env.AWS_ENDPOINT_URL_S3,
-  forcePathStyle: true,
-  credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID || '',
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY || '',
-  },
-});
+// Create S3 client for server-side operations (only if credentials are available)
+const createS3Client = () => {
+  if (!process.env.AWS_ACCESS_KEY_ID || !process.env.AWS_SECRET_ACCESS_KEY) {
+    return null;
+  }
+
+  return new S3Client({
+    region: process.env.AWS_REGION!,
+    endpoint: process.env.AWS_ENDPOINT_URL_S3,
+    forcePathStyle: true,
+    credentials: {
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    },
+  });
+};
+
+const s3Client = createS3Client();
 
 export async function POST(req: NextRequest) {
   try {
+    // Check if AWS S3 is configured
+    const s3Configured =
+      process.env.AWS_ACCESS_KEY_ID &&
+      process.env.AWS_SECRET_ACCESS_KEY &&
+      process.env.AWS_BUCKET_NAME;
+
+    if (!s3Configured) {
+      return NextResponse.json(
+        {
+          error: 'Service Unavailable',
+          message: 'File upload is not configured. Please add AWS S3 credentials to .env.local',
+        },
+        { status: 503 }
+      );
+    }
+
     // Check authentication
     const session = await auth();
     if (!session) {
@@ -58,6 +82,10 @@ export async function POST(req: NextRequest) {
     const buffer = Buffer.from(arrayBuffer);
 
     // Upload to S3
+    if (!s3Client) {
+      throw new Error('S3 client not initialized');
+    }
+
     await s3Client.send(
       new PutObjectCommand({
         Bucket: bucketName,
