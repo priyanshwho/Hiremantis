@@ -17,7 +17,7 @@ interface ContactConfirmationEmailProps {
 
 export const ContactConfirmationEmail = ({ name, message }: ContactConfirmationEmailProps) => {
   return (
-    <BaseEmailTemplate previewText="Thanks for contacting Hiremantis">
+    <BaseEmailTemplate previewText="Thanks for contacting HireBlue">
       <Section
         style={{
           backgroundColor: '#4f46e5',
@@ -42,7 +42,7 @@ export const ContactConfirmationEmail = ({ name, message }: ContactConfirmationE
         <Text style={textLg}>Hi {name},</Text>
 
         <Text style={textBase}>
-          Thank you for reaching out to Hiremantis! We have received your message and will get back
+          Thank you for reaching out to HireBlue! We have received your message and will get back
           to you as soon as possible.
         </Text>
 
@@ -57,8 +57,8 @@ export const ContactConfirmationEmail = ({ name, message }: ContactConfirmationE
           Our team will review your message and respond within 1-2 business days.
         </Text>
 
-        <Button href="https://Hiremantis.app" style={buttonBase}>
-          Visit Hiremantis
+        <Button href="https://HireBlue.app" style={buttonBase}>
+          Visit HireBlue
         </Button>
 
         <Hr style={{ borderColor: '#e5e7eb', margin: '24px 0' }} />
@@ -66,7 +66,7 @@ export const ContactConfirmationEmail = ({ name, message }: ContactConfirmationE
         <Text style={textBase}>
           Best regards,
           <br />
-          <strong>The Hiremantis Team</strong>
+          <strong>The HireBlue Team</strong>
         </Text>
       </Section>
     </BaseEmailTemplate>

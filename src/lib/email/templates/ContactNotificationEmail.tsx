@@ -62,7 +62,7 @@ export const ContactNotificationEmail = ({
         <Text style={textBase}>
           You can view and manage all contact submissions in the{' '}
           <Link
-            href="https://Hiremantis.app/dashboard/contact-submissions"
+            href="https://HireBlue.app/dashboard/contact-submissions"
             style={{ color: '#4f46e5', textDecoration: 'underline' }}
           >
             admin dashboard

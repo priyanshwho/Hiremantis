@@ -58,9 +58,9 @@ export async function POST(req: NextRequest) {
         // Send notification to admin
         if (process.env.ADMIN_EMAIL) {
           const adminSend = await resend.emails.send({
-            from: 'Hiremantis <notification@Hiremantis.app>',
+            from: 'HireBlue <notification@HireBlue.app>',
             to: process.env.ADMIN_EMAIL,
-            subject: 'New Hiremantis Waitlist Submission',
+            subject: 'New HireBlue Waitlist Submission',
             html: await renderAdminNotificationEmail({
               name,
               email,
@@ -73,9 +73,9 @@ export async function POST(req: NextRequest) {
 
         // Send confirmation email to user
         const wishlistsend = await resend.emails.send({
-          from: 'Hiremantis <wishlist@Hiremantis.app>',
+          from: 'HireBlue <wishlist@HireBlue.app>',
           to: email,
-          subject: 'Welcome to the Hiremantis Waitlist',
+          subject: 'Welcome to the HireBlue Waitlist',
           html: await renderWaitlistConfirmationEmail(name),
         });
         console.log('Confirmation email sent:', wishlistsend);

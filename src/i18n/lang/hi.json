@@ -432,7 +432,7 @@
       "contactInfo": {
         "email": {
           "label": "ईमेल",
-          "value": "support@Hiremantis.ai"
+          "value": "support@HireBlue.ai"
         },
         "phone": {
           "label": "फ़ोन",
@@ -551,14 +551,14 @@
         },
         "contactInformation": {
           "title": "संपर्क जानकारी",
-          "content": "इन सेवा की शर्तों के बारे में किसी भी प्रश्न के लिए, कृपया legal@Hiremantis.ai पर हमसे संपर्क करें।"
+          "content": "इन सेवा की शर्तों के बारे में किसी भी प्रश्न के लिए, कृपया legal@HireBlue.ai पर हमसे संपर्क करें।"
         }
       }
     }
   },
   "LearnMore": {
     "backToHome": "होम पर वापस जाएं",
-    "discoverHiremantis": "हायरलिटिक्स को जानें",
+    "discoverHireBlue": "हायरलिटिक्स को जानें",
     "learnMoreTitle": "के बारे में और जानें",
     "learnMoreDescription": "जानें कि कैसे हमारा AI-संचालित भर्ती प्लेटफ़ॉर्म भर्ती प्रक्रिया को बदल रहा है, इसे अधिक कुशल, निष्पक्ष और रिक्रूटर्स और उम्मीदवारों दोनों के लिए प्रभावी बना रहा है।",
     "mission": {

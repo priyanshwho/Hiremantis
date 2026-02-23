@@ -32,7 +32,7 @@ export const AdminNotificationEmail = ({
           New Waitlist Submission
         </Heading>
         <Text style={textLg}>
-          A new user has joined the Hiremantis waitlist. Here are their details:
+          A new user has joined the HireBlue waitlist. Here are their details:
         </Text>
 
         <Section style={highlightedBox}>
@@ -59,7 +59,7 @@ export const AdminNotificationEmail = ({
         <Text style={textBase}>
           You can view and manage all waitlist entries in the{' '}
           <Link
-            href="https://Hiremantis.app/dashboard/admin/waitlist"
+            href="https://HireBlue.app/dashboard/admin/waitlist"
             style={{ color: '#4f46e5', textDecoration: 'underline' }}
           >
             admin dashboard

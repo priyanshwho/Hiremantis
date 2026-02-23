@@ -119,8 +119,8 @@ export default function PrivacyPolicyPage() {
               <h2 className="text-2xl font-semibold mb-4">{t('sections.contactUs.title')}</h2>
               <p className="text-muted-foreground">
                 {t('sections.contactUs.content')}{' '}
-                <a href="mailto:privacy@Hiremantis.ai" className="text-primary hover:underline">
-                  privacy@Hiremantis.ai
+                <a href="mailto:privacy@HireBlue.ai" className="text-primary hover:underline">
+                  privacy@HireBlue.ai
                 </a>
                 .
               </p>

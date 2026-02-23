@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { ApplicationsClient } from '@/components/applications/applications-client';
 
 export const metadata: Metadata = {
-  title: 'My Applications | Candidate Dashboard | Hiremantis',
+  title: 'My Applications | Candidate Dashboard | HireBlue',
   description: 'Track and manage all your job applications in one place',
 };
 

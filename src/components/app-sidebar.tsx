@@ -25,13 +25,13 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarMenuButton asChild className="data-[slot=sidebar-menu-button]:!p-1.5">
               <Link href="/">
                 <Image
-                  src="/images/hiremantis-logo.svg"
-                  alt="Hiremantis Logo"
+                  src="/images/HireBlue-logo.svg"
+                  alt="HireBlue Logo"
                   width={24}
                   height={24}
                   className="!size-6 mr-2 dark:invert-[0.15] dark:brightness-110"
                 />
-                <span className="text-base font-semibold">Hiremantis</span>
+                <span className="text-base font-semibold">HireBlue</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>

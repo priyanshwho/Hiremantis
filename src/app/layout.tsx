@@ -18,7 +18,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: 'Hiremantis - AI Interview Platform for Modern Hiring',
+  title: 'HireBlue - AI Interview Platform for Modern Hiring',
   description:
     'Our AI-driven platform transforms the recruitment process from job posting to candidate selection. Automate interviews, analyze resumes, and make data-driven hiring decisions.',
   icons: {
@@ -28,17 +28,17 @@ export const metadata: Metadata = {
   // manifest: "/manifest.json",
   // themeColor: "#0C4A6E",
   // openGraph: {
-  //   title: "Hiremantis - AI Interview Platform for Modern Hiring",
+  //   title: "HireBlue - AI Interview Platform for Modern Hiring",
   //   description:
   //     "Transform your hiring process with AI-powered interviews and candidate analysis",
-  //   images: ["/images/hiremantis-logo.svg"],
+  //   images: ["/images/HireBlue-logo.svg"],
   // },
   // twitter: {
   //   card: "summary_large_image",
-  //   title: "Hiremantis - AI Interview Platform for Modern Hiring",
+  //   title: "HireBlue - AI Interview Platform for Modern Hiring",
   //   description:
   //     "Transform your hiring process with AI-powered interviews and candidate analysis",
-  //   images: ["/images/hiremantis-logo.svg"],
+  //   images: ["/images/HireBlue-logo.svg"],
   // },
 };
 

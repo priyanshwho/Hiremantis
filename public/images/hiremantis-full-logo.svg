@@ -11,7 +11,7 @@
   </g>
   
   <!-- Text -->
-  <text x="220" y="115" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="72" fill="#0F172A" class="dark-mode-text">Hiremantis</text>
+  <text x="220" y="115" font-family="system-ui, -apple-system, sans-serif" font-weight="800" font-size="72" fill="#0F172A" class="dark-mode-text">HireBlue</text>
   <text x="225" y="160" font-family="system-ui, -apple-system, sans-serif" font-weight="500" font-size="24" fill="#64748B" class="dark-mode-subtext">AI Interview Platform</text>
 
   <style>

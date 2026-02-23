@@ -211,7 +211,7 @@ export function Footer() {
               </svg>
             </Link>
             <Link
-              href="https://x.com/Hiremantis"
+              href="https://x.com/HireBlue"
               target="_blank"
               className="text-muted-foreground transition-colors hover:text-primary"
             >
@@ -231,7 +231,7 @@ export function Footer() {
               </svg>
             </Link>
             <Link
-              href="https://www.instagram.com/Hiremantis/"
+              href="https://www.instagram.com/HireBlue/"
               target="_blank"
               className="text-muted-foreground transition-colors hover:text-primary"
             >

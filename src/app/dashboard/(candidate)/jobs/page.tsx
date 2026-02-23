@@ -3,7 +3,7 @@ import { Metadata } from 'next';
 import { JobsList } from '@/components/jobs/jobs-list';
 
 export const metadata: Metadata = {
-  title: 'Job Listings | Candidate Dashboard | Hiremantis',
+  title: 'Job Listings | Candidate Dashboard | HireBlue',
   description: 'Browse through available job positions and find your next opportunity',
 };
 

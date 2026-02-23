@@ -5,7 +5,7 @@ import { createS3Client } from '@/lib/s3-client';
 export const checkBucketAccess = async () => {
   try {
     const s3Client = createS3Client();
-    const bucketName = process.env.AWS_BUCKET_NAME || 'Hiremantis';
+    const bucketName = process.env.AWS_BUCKET_NAME || 'HireBlue';
 
     console.log(`Checking access to bucket: ${bucketName}...`);
 

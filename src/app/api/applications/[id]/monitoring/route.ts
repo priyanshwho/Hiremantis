@@ -16,7 +16,7 @@ const s3Client = new S3Client({
   },
 });
 
-const bucketName = process.env.AWS_BUCKET_NAME || 'Hiremantis';
+const bucketName = process.env.AWS_BUCKET_NAME || 'HireBlue';
 
 export async function POST(request: NextRequest, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;

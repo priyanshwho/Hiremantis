@@ -22,7 +22,7 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 
     if (!application) {
       return {
-        title: 'Interview | Hiremantis',
+        title: 'Interview | HireBlue',
         description: 'Virtual interview for your job application',
       };
     }
@@ -30,12 +30,12 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
     const job = await getJobById(application.jobId);
 
     return {
-      title: `Interview for ${job.title} | Hiremantis`,
+      title: `Interview for ${job.title} | HireBlue`,
       description: `Virtual interview for the ${job.title} position at ${job.companyName}`,
     };
   } catch {
     return {
-      title: 'Interview | Hiremantis',
+      title: 'Interview | HireBlue',
       description: 'Virtual interview for your job application',
     };
   }

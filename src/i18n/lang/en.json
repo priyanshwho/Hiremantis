@@ -44,7 +44,7 @@
   "Demo": {
     "page": {
       "title": "Product Demonstrations",
-      "description": "Experience Hiremantis in action. Watch our demos to see how we revolutionize the hiring process for both candidates and recruiters.",
+      "description": "Experience HireBlue in action. Watch our demos to see how we revolutionize the hiring process for both candidates and recruiters.",
       "bookPersonalizedDemo": "Book a Personalized Demo"
     },
     "sections": {
@@ -59,11 +59,11 @@
     },
     "book": {
       "title": "Book a Demo",
-      "description": "Schedule a personalized demo session with our team. We'll walk you through Hiremantis's features and answer any questions you may have."
+      "description": "Schedule a personalized demo session with our team. We'll walk you through HireBlue's features and answer any questions you may have."
     }
   },
   "HomePage": {
-    "title": "Hiremantis",
+    "title": "HireBlue",
     "subtitle": "Role-Based Recruitment Platform",
     "description": "A role-based recruitment platform for recruiters, candidates, and administrators",
     "features": "AI-Powered Features",
@@ -139,7 +139,7 @@
     },
     "howItWorks": {
       "title": "Streamlined Process",
-      "subtitle": "How Hiremantis Works",
+      "subtitle": "How HireBlue Works",
       "description": "Our AI-powered platform streamlines the entire recruitment journey from job posting to final selection.",
       "steps": {
         "step1": {
@@ -199,7 +199,7 @@
       "description": "Hear from recruiters and candidates who have transformed their hiring experience with our AI-powered platform.",
       "items": [
         {
-          "quote": "Hiremantis has revolutionized our recruitment process. We've reduced our time-to-hire by 40% and found better quality candidates.",
+          "quote": "HireBlue has revolutionized our recruitment process. We've reduced our time-to-hire by 40% and found better quality candidates.",
           "name": "Sarah Johnson",
           "role": "HR Director",
           "company": "TechCorp"
@@ -214,13 +214,13 @@
           "quote": "As a candidate, I love how the platform matched me with jobs that truly aligned with my skills and career goals. The AI interview was surprisingly conversational.",
           "name": "Michael Chen",
           "role": "Software Engineer",
-          "company": "Hired via Hiremantis"
+          "company": "Hired via HireBlue"
         }
       ]
     },
     "cta": {
       "title": "Ready to Transform Your Hiring Process?",
-      "description": "Join thousands of companies using Hiremantis to find the perfect candidates faster and more efficiently.",
+      "description": "Join thousands of companies using HireBlue to find the perfect candidates faster and more efficiently.",
       "getStarted": "Get Started",
       "learnMore": "Learn More",
       "noCreditCard": "No credit card required • Free trial available"
@@ -255,11 +255,11 @@
         "privacyPolicy": "Privacy Policy",
         "termsOfService": "Terms of Service"
       },
-      "copyright": "© {year} Hiremantis. All rights reserved.",
+      "copyright": "© {year} HireBlue. All rights reserved.",
       "cta": {
         "title": "AI-Powered Recruitment",
         "heading": "Ready to Transform Your Hiring Process?",
-        "description": "Join thousands of companies using Hiremantis to find the perfect candidates faster and more efficiently.",
+        "description": "Join thousands of companies using HireBlue to find the perfect candidates faster and more efficiently.",
         "getStarted": "Get Started",
         "learnMore": "Learn More",
         "noCreditCard": "No credit card required • Free trial available"
@@ -402,11 +402,11 @@
   },
   "Pages": {
     "about": {
-      "title": "About Hiremantis",
+      "title": "About HireBlue",
       "subtitle": "Revolutionizing recruitment through AI-powered solutions",
       "mission": {
         "title": "Our Mission",
-        "description1": "At Hiremantis, we're on a mission to transform the recruitment landscape by leveraging cutting-edge AI technology. We believe in creating a more efficient, fair, and effective hiring process that benefits both employers and candidates.",
+        "description1": "At HireBlue, we're on a mission to transform the recruitment landscape by leveraging cutting-edge AI technology. We believe in creating a more efficient, fair, and effective hiring process that benefits both employers and candidates.",
         "description2": "Our platform combines advanced AI algorithms with human-centered design to streamline recruitment workflows, reduce bias, and help organizations find the best talent."
       },
       "values": {
@@ -425,7 +425,7 @@
       },
       "cta": {
         "title": "Ready to Transform Your Hiring Process?",
-        "description": "Experience the future of recruitment with Hiremantis. Our AI-powered platform is ready to revolutionize how you hire.",
+        "description": "Experience the future of recruitment with HireBlue. Our AI-powered platform is ready to revolutionize how you hire.",
         "buttonText": "Get Started",
         "badge": "AI-Powered Platform"
       }
@@ -449,7 +449,7 @@
       "contactInfo": {
         "email": {
           "label": "Email",
-          "value": "support@Hiremantis.ai"
+          "value": "support@HireBlue.ai"
         },
         "phone": {
           "label": "Phone",
@@ -467,7 +467,7 @@
       "sections": {
         "introduction": {
           "title": "Introduction",
-          "content": "This Privacy Policy explains how Hiremantis collects, uses, and protects your personal information when you use our AI-powered recruitment platform."
+          "content": "This Privacy Policy explains how HireBlue collects, uses, and protects your personal information when you use our AI-powered recruitment platform."
         },
         "informationWeCollect": {
           "title": "Information We Collect",
@@ -522,7 +522,7 @@
       "sections": {
         "agreement": {
           "title": "Agreement to Terms",
-          "content": "By accessing or using the Hiremantis platform, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this platform."
+          "content": "By accessing or using the HireBlue platform, you agree to be bound by these Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, you are prohibited from using or accessing this platform."
         },
         "useLicense": {
           "title": "Use License",
@@ -534,7 +534,7 @@
         },
         "serviceDescription": {
           "title": "Service Description",
-          "content": "Hiremantis provides an AI-powered recruitment platform designed to facilitate hiring processes between employers and job seekers."
+          "content": "HireBlue provides an AI-powered recruitment platform designed to facilitate hiring processes between employers and job seekers."
         },
         "userObligations": {
           "title": "User Obligations",
@@ -548,19 +548,19 @@
         },
         "intellectualProperty": {
           "title": "Intellectual Property",
-          "content": "All content, features, and functionality of the Hiremantis platform are owned by Hiremantis and are protected by international copyright, trademark, and other intellectual property laws."
+          "content": "All content, features, and functionality of the HireBlue platform are owned by HireBlue and are protected by international copyright, trademark, and other intellectual property laws."
         },
         "limitationOfLiability": {
           "title": "Limitation of Liability",
-          "content": "Hiremantis shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of the platform."
+          "content": "HireBlue shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of the platform."
         },
         "privacyPolicy": {
           "title": "Privacy Policy",
-          "content": "Your use of Hiremantis is also governed by our Privacy Policy. Please review our Privacy Policy to understand our practices."
+          "content": "Your use of HireBlue is also governed by our Privacy Policy. Please review our Privacy Policy to understand our practices."
         },
         "governingLaw": {
           "title": "Governing Law",
-          "content": "These terms shall be governed by and construed in accordance with the laws of the jurisdiction in which Hiremantis operates."
+          "content": "These terms shall be governed by and construed in accordance with the laws of the jurisdiction in which HireBlue operates."
         },
         "changesToTerms": {
           "title": "Changes to Terms",
@@ -568,20 +568,20 @@
         },
         "contactInformation": {
           "title": "Contact Information",
-          "content": "For any questions about these Terms of Service, please contact us at legal@Hiremantis.ai"
+          "content": "For any questions about these Terms of Service, please contact us at legal@HireBlue.ai"
         }
       }
     }
   },
   "LearnMore": {
     "backToHome": "Back to Home",
-    "discoverHiremantis": "Discover Hiremantis",
+    "discoverHireBlue": "Discover HireBlue",
     "learnMoreTitle": "Learn More About",
     "learnMoreDescription": "Discover how our AI-powered recruitment platform is transforming the hiring process, making it more efficient, fair, and effective for both recruiters and candidates.",
     "mission": {
       "title": "Our Mission",
       "heading": "Transforming Recruitment Through AI",
-      "description1": "At Hiremantis, we believe that recruiting should be more than just scanning resumes. Our mission is to leverage artificial intelligence to create meaningful connections between exceptional talent and forward-thinking organizations.",
+      "description1": "At HireBlue, we believe that recruiting should be more than just scanning resumes. Our mission is to leverage artificial intelligence to create meaningful connections between exceptional talent and forward-thinking organizations.",
       "description2": "We're dedicated to removing bias from the hiring process, providing data-driven insights for better decision-making, and creating a seamless experience for both recruiters and candidates.",
       "keyObjectives": {
         "title": "Key Objectives",
@@ -596,7 +596,7 @@
     },
     "benefits": {
       "title": "Platform Benefits",
-      "heading": "Why Choose Hiremantis?",
+      "heading": "Why Choose HireBlue?",
       "description": "Our platform offers unique advantages for both recruiters and candidates, making the entire hiring process more efficient and effective.",
       "sections": {
         "recruiters": {
@@ -637,7 +637,7 @@
     "technology": {
       "title": "Technology",
       "heading": "Powered by Advanced AI",
-      "description": "Hiremantis leverages cutting-edge artificial intelligence, machine learning, and natural language processing technologies to transform how organizations approach hiring.",
+      "description": "HireBlue leverages cutting-edge artificial intelligence, machine learning, and natural language processing technologies to transform how organizations approach hiring.",
       "features": {
         "nlp": {
           "title": "Natural Language Processing",
@@ -660,34 +660,34 @@
     "faq": {
       "title": "Common Questions",
       "heading": "Frequently Asked Questions",
-      "description": "Get answers to common questions about Hiremantis and how it can transform your recruitment process.",
+      "description": "Get answers to common questions about HireBlue and how it can transform your recruitment process.",
       "questions": [
         {
-          "question": "How does Hiremantis ensure fairness in the hiring process?",
-          "answer": "Hiremantis reduces bias through structured evaluations that focus on skills and competencies rather than demographic factors. Our AI models are regularly audited for fairness and trained on diverse datasets to ensure they don't perpetuate existing biases."
+          "question": "How does HireBlue ensure fairness in the hiring process?",
+          "answer": "HireBlue reduces bias through structured evaluations that focus on skills and competencies rather than demographic factors. Our AI models are regularly audited for fairness and trained on diverse datasets to ensure they don't perpetuate existing biases."
         },
         {
-          "question": "Can Hiremantis integrate with our existing HR systems?",
-          "answer": "Yes, Hiremantis offers API integrations with major HR information systems, applicant tracking systems, and job boards. Our team can provide custom integration solutions for enterprise clients with specific requirements."
+          "question": "Can HireBlue integrate with our existing HR systems?",
+          "answer": "Yes, HireBlue offers API integrations with major HR information systems, applicant tracking systems, and job boards. Our team can provide custom integration solutions for enterprise clients with specific requirements."
         },
         {
           "question": "How secure is candidate data on the platform?",
-          "answer": "Hiremantis employs bank-level encryption for data both in transit and at rest. We are fully GDPR compliant and follow SOC 2 security practices, with regular penetration testing and security audits."
+          "answer": "HireBlue employs bank-level encryption for data both in transit and at rest. We are fully GDPR compliant and follow SOC 2 security practices, with regular penetration testing and security audits."
         },
         {
-          "question": "What makes Hiremantis different from traditional ATS systems?",
-          "answer": "Unlike traditional ATS systems that simply track applications, Hiremantis actively evaluates candidates through AI interviews, provides data-driven insights, and offers a more engaging experience for both recruiters and candidates."
+          "question": "What makes HireBlue different from traditional ATS systems?",
+          "answer": "Unlike traditional ATS systems that simply track applications, HireBlue actively evaluates candidates through AI interviews, provides data-driven insights, and offers a more engaging experience for both recruiters and candidates."
         },
         {
-          "question": "How long does it take to set up Hiremantis for my company?",
-          "answer": "Most companies can get started with Hiremantis in less than a day. Our onboarding team provides comprehensive support, including template creation, system integration, and training for your recruitment team."
+          "question": "How long does it take to set up HireBlue for my company?",
+          "answer": "Most companies can get started with HireBlue in less than a day. Our onboarding team provides comprehensive support, including template creation, system integration, and training for your recruitment team."
         }
       ]
     },
     "cta": {
       "readyToStart": "Ready to Get Started?",
       "heading": "Transform Your Recruitment Process Today",
-      "description": "Join thousands of companies using Hiremantis to find the perfect candidates faster, more efficiently, and with better results.",
+      "description": "Join thousands of companies using HireBlue to find the perfect candidates faster, more efficiently, and with better results.",
       "getStarted": "Get Started"
     }
   },
@@ -698,7 +698,7 @@
       "name": "Your name",
       "email": "your.email@example.com",
       "reason": "Why are you interested? (Optional)",
-      "reasonPlaceholder": "Tell us why you're interested in Hiremantis",
+      "reasonPlaceholder": "Tell us why you're interested in HireBlue",
       "submit": "Join Waitlist",
       "submitting": "Submitting...",
       "success": {

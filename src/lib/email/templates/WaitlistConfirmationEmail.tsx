@@ -17,7 +17,7 @@ interface WaitlistConfirmationEmailProps {
 
 export const WaitlistConfirmationEmail = ({ name }: WaitlistConfirmationEmailProps) => {
   return (
-    <BaseEmailTemplate previewText="Thanks for joining the Hiremantis waitlist!">
+    <BaseEmailTemplate previewText="Thanks for joining the HireBlue waitlist!">
       <Section
         style={{
           backgroundColor: '#4f46e5',
@@ -42,7 +42,7 @@ export const WaitlistConfirmationEmail = ({ name }: WaitlistConfirmationEmailPro
         <Text style={textLg}>Hi {name},</Text>
 
         <Text style={textBase}>
-          Thank you for your interest in Hiremantis! We&apos;re excited to have you on our waitlist.
+          Thank you for your interest in HireBlue! We&apos;re excited to have you on our waitlist.
         </Text>
 
         <Section style={highlightedBox}>
@@ -56,7 +56,7 @@ export const WaitlistConfirmationEmail = ({ name }: WaitlistConfirmationEmailPro
         </Section>
 
         <Heading as="h2" style={headingMd}>
-          Why Choose Hiremantis?
+          Why Choose HireBlue?
         </Heading>
 
         <Row style={{ paddingTop: '12px', paddingBottom: '12px' }}>
@@ -97,8 +97,8 @@ export const WaitlistConfirmationEmail = ({ name }: WaitlistConfirmationEmailPro
           </Column>
         </Row>
 
-        <Button href="https://Hiremantis.app/learn-more" style={buttonBase}>
-          Learn More About Hiremantis
+        <Button href="https://HireBlue.app/learn-more" style={buttonBase}>
+          Learn More About HireBlue
         </Button>
 
         <Hr style={{ borderColor: '#e5e7eb', margin: '24px 0' }} />
@@ -113,7 +113,7 @@ export const WaitlistConfirmationEmail = ({ name }: WaitlistConfirmationEmailPro
           <br />
           <strong>Raghav Gupta &amp; Priyanshu</strong>
           <br />
-          <em>Co-Founders, Hiremantis</em>
+          <em>Co-Founders, HireBlue</em>
         </Text>
       </Section>
     </BaseEmailTemplate>

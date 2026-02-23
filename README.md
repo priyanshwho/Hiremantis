@@ -1,4 +1,4 @@
-# Hiremantis: AI-Powered Recruitment Platform
+# HireBlue: AI-Powered Recruitment Platform
 
 [![Next.js](https://img.shields.io/badge/Next.js-15-black?logo=next.js)](https://nextjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-blue?logo=typescript)](https://www.typescriptlang.org)
@@ -6,9 +6,9 @@
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38bdf8?logo=tailwindcss)](https://tailwindcss.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 
-**Hiremantis** is a full-stack, AI-driven recruitment platform that streamlines the entire hiring funnel — from job posting to AI-conducted technical interviews and automated candidate evaluation — for three roles: **Admin**, **Recruiter**, and **Candidate**.
+**HireBlue** is a full-stack, AI-driven recruitment platform built with Next.js 15 App Router, NextAuth v5, and MongoDB. It streamlines the entire hiring funnel — from job posting to AI-conducted technical interviews and automated candidate evaluation — for three distinct roles: **Admin**, **Recruiter**, and **Candidate**.
 
-> Built by [Raghav Gupta](https://www.linkedin.com/in/raghav-gupta-035b4a292/) & [Priyanshu Anand](https://www.linkedin.com/in/priyans11/)
+> Built by [Priyanshu Anand](https://www.linkedin.com/in/priyans11/) (backend, frontend, UI) & [Raghav Gupta](https://www.linkedin.com/in/raghav-gupta-035b4a292/) (AI/ML)
 
 ---
 
@@ -101,22 +101,56 @@ flowchart LR
 
 ## Quick Start
 
+### Environment Variables
+
 ```bash
-# 1. Clone & install
-git clone https://github.com/priyanshwho/Hiremantis.git
-cd Hiremantis
+# MongoDB
+MONGODB_URI=your_mongodb_connection_string
+
+# NextAuth
+AUTH_URL=http://localhost:3000
+NEXTAUTH_URL=http://localhost:3000
+NEXTAUTH_SECRET=your_random_secret   # openssl rand -base64 32
+
+# Email (Resend)
+RESEND_API_KEY=your_resend_api_key
+ADMIN_EMAIL=your_admin_email
+
+# Registration Control
+REGISTRATION_ENABLED=true   # set to 'false' to enable waitlist mode
+
+# AWS S3 / Compatible Storage
+AWS_ACCESS_KEY_ID=your_key_id
+AWS_SECRET_ACCESS_KEY=your_secret_key
+AWS_REGION=auto
+AWS_ENDPOINT_URL_S3=https://your-s3-endpoint
+AWS_BUCKET_NAME=your_bucket_name
+
+# AI Services
+GOOGLE_API_KEY=your_gemini_api_key
+DEEPGRAM_API_KEY=your_deepgram_api_key
+```
+
+### Installation
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/priyanshwho/HireBlue.git
+cd HireBlue
+
+# 2. Install dependencies
 pnpm install
 
-# 2. Configure environment
+# 3. Configure environment
 cp .env.example .env.local   # fill in your values — see docs/deployment.md
 
-# 3. Verify setup
+# 4. Verify setup
 pnpm tsx scripts/verify-setup.ts
 
-# 4. Create first admin
+# 5. Create first admin
 pnpm tsx scripts/create-admin.ts "Admin Name" "admin@example.com" "password"
 
-# 5. Start dev server
+# 6. Start dev server
 pnpm dev
 ```
 

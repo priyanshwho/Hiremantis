@@ -151,8 +151,8 @@ export default function Home() {
             <Image
               width={650}
               height={200}
-              src="/images/hiremantis-full-logo.svg"
-              alt="Hiremantis"
+              src="/images/HireBlue-full-logo.svg"
+              alt="HireBlue"
               className="h-20 md:h-24 w-auto max-w-full dark:invert-[0.15] dark:brightness-110 mb-6"
               priority
             />
@@ -706,7 +706,7 @@ export default function Home() {
             {[
               {
                 quote:
-                  'Hiremantis has revolutionized our recruitment process. We&apos;ve reduced our time-to-hire by 40% and found better quality candidates.',
+                  'HireBlue has revolutionized our recruitment process. We&apos;ve reduced our time-to-hire by 40% and found better quality candidates.',
                 name: 'Sarah Johnson',
                 role: 'HR Director',
                 company: 'TechCorp',
@@ -725,7 +725,7 @@ export default function Home() {
                   'As a candidate, I love how the platform matched me with jobs that truly aligned with my skills and career goals. The AI interview was surprisingly conversational.',
                 name: 'Michael Chen',
                 role: 'Software Engineer',
-                company: 'Hired via Hiremantis',
+                company: 'Hired via HireBlue',
                 color: 'green',
               },
             ].map((testimonial, index) => (
