@@ -3,8 +3,8 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
+import { AuthPageShell } from '@/components/auth/auth-page-shell';
 import { LoginForm } from '@/components/auth/login-form';
-import { AnimatedBackground } from '@/components/ui/animated-background';
 import { AnimatedAuthCard } from '@/components/ui/auth-card';
 
 export default function AdminLoginPage() {
@@ -34,17 +34,15 @@ export default function AdminLoginPage() {
   );
 
   return (
-    <AnimatedBackground patternColor="primary" colorScheme="cyan">
-      <div className="w-full max-w-md px-4">
-        <AnimatedAuthCard
-          title="Admin Login"
-          description="Enter your credentials to access the admin dashboard"
-          colorScheme="cyan"
-          footer={footerContent}
-        >
-          <LoginForm role="admin" />
-        </AnimatedAuthCard>
-      </div>
-    </AnimatedBackground>
+    <AuthPageShell colorScheme="cyan">
+      <AnimatedAuthCard
+        title="Admin Login"
+        description="Enter your credentials to access the admin dashboard"
+        colorScheme="cyan"
+        footer={footerContent}
+      >
+        <LoginForm role="admin" />
+      </AnimatedAuthCard>
+    </AuthPageShell>
   );
 }

@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { Home } from 'lucide-react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import * as React from 'react';
 
 import { LanguageSelector } from '@/components/language-selector';
@@ -16,6 +17,12 @@ interface FloatingControlsProps {
 }
 
 export function FloatingControls({ className, side = 'right' }: FloatingControlsProps) {
+  const pathname = usePathname();
+
+  if (pathname === '/') {
+    return null;
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0, x: side === 'left' ? -20 : 20 }}

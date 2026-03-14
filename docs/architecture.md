@@ -179,7 +179,7 @@ hiremantis/
     │   ├── jobs/               #   Public job board
     │   ├── login/              #   Login pages (per role)
     │   ├── register/           #   Registration pages
-    │   └── ...                 #   About, contact, demo, learn-more, etc.
+    │   └── ...                 #   About, contact, learn-more, etc.
     ├── components/             # React components
     │   ├── ui/                 #   53+ shadcn/ui primitives
     │   ├── interview/          #   23 interview UI components

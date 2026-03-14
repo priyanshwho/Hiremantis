@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { useEffect } from 'react';
 
-import { AnimatedBackground } from '@/components/ui/animated-background';
+import { AuthPageShell } from '@/components/auth/auth-page-shell';
 import { AnimatedAuthCard } from '@/components/ui/auth-card';
 import { Button } from '@/components/ui/button';
 import { config } from '@/lib/config';
@@ -46,69 +46,65 @@ export default function RegisterPage() {
   // If registration is disabled, show loading state while redirecting
   if (!registrationEnabled) {
     return (
-      <AnimatedBackground patternColor="primary" colorScheme="indigo">
-        <div className="w-full max-w-md px-4">
-          <AnimatedAuthCard
-            title="Redirecting..."
-            description="Please wait while we redirect you to the waitlist page."
-            colorScheme="indigo"
-            contentClassName="flex flex-col space-y-4 items-center justify-center"
-          >
-            <div className="py-4">
-              <div className="animate-spin h-8 w-8 border-4 border-primary border-t-transparent rounded-full"></div>
-            </div>
-          </AnimatedAuthCard>
-        </div>
-      </AnimatedBackground>
+      <AuthPageShell colorScheme="indigo">
+        <AnimatedAuthCard
+          title="Redirecting..."
+          description="Please wait while we redirect you to the waitlist page."
+          colorScheme="indigo"
+          contentClassName="flex flex-col space-y-4 items-center justify-center"
+        >
+          <div className="py-4">
+            <div className="animate-spin h-8 w-8 border-4 border-primary border-t-transparent rounded-full"></div>
+          </div>
+        </AnimatedAuthCard>
+      </AuthPageShell>
     );
   }
 
   // Normal registration flow
   return (
-    <AnimatedBackground patternColor="primary" colorScheme="indigo">
-      <div className="w-full max-w-md px-4">
-        <AnimatedAuthCard
-          title={t('register')}
-          description={t('chooseRoleRegister')}
-          colorScheme="indigo"
-          contentClassName="flex flex-col space-y-4"
-        >
-          <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
-            <motion.div variants={fadeIn} className="mb-4">
-              <Link href="/register/recruiter" className="w-full">
-                <Button variant="default" className="w-full">
-                  {t('registerAs.recruiter')}
-                </Button>
-              </Link>
-            </motion.div>
-
-            <motion.div variants={fadeIn} className="mb-4">
-              <Link href="/register/candidate" className="w-full">
-                <Button variant="outline" className="w-full">
-                  {t('registerAs.candidate')}
-                </Button>
-              </Link>
-            </motion.div>
-
-            <motion.div variants={fadeIn} className="relative my-6">
-              <div className="absolute inset-0 flex items-center">
-                <span className="w-full border-t" />
-              </div>
-              <div className="relative flex justify-center text-xs uppercase">
-                <span className="bg-card px-2 text-muted-foreground">{t('hasAccount')}</span>
-              </div>
-            </motion.div>
-
-            <motion.div variants={fadeIn}>
-              <Link href="/login" className="w-full">
-                <Button variant="outline" className="w-full">
-                  {t('login')}
-                </Button>
-              </Link>
-            </motion.div>
+    <AuthPageShell colorScheme="indigo">
+      <AnimatedAuthCard
+        title={t('register')}
+        description={t('chooseRoleRegister')}
+        colorScheme="indigo"
+        contentClassName="flex flex-col space-y-4"
+      >
+        <motion.div initial="hidden" animate="visible" variants={staggerContainer}>
+          <motion.div variants={fadeIn} className="mb-4">
+            <Link href="/register/recruiter" className="w-full">
+              <Button variant="default" className="w-full">
+                {t('registerAs.recruiter')}
+              </Button>
+            </Link>
           </motion.div>
-        </AnimatedAuthCard>
-      </div>
-    </AnimatedBackground>
+
+          <motion.div variants={fadeIn} className="mb-4">
+            <Link href="/register/candidate" className="w-full">
+              <Button variant="outline" className="w-full">
+                {t('registerAs.candidate')}
+              </Button>
+            </Link>
+          </motion.div>
+
+          <motion.div variants={fadeIn} className="relative my-6">
+            <div className="absolute inset-0 flex items-center">
+              <span className="w-full border-t" />
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-card px-2 text-muted-foreground">{t('hasAccount')}</span>
+            </div>
+          </motion.div>
+
+          <motion.div variants={fadeIn}>
+            <Link href="/login" className="w-full">
+              <Button variant="outline" className="w-full">
+                {t('login')}
+              </Button>
+            </Link>
+          </motion.div>
+        </motion.div>
+      </AnimatedAuthCard>
+    </AuthPageShell>
   );
 }

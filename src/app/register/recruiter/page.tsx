@@ -6,8 +6,8 @@ import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { useEffect } from 'react';
 
+import { AuthPageShell } from '@/components/auth/auth-page-shell';
 import { RegisterForm } from '@/components/auth/register-form';
-import { AnimatedBackground } from '@/components/ui/animated-background';
 import { AnimatedAuthCard } from '@/components/ui/auth-card';
 import { config } from '@/lib/config';
 
@@ -26,20 +26,18 @@ export default function RecruiterRegisterPage() {
   // If registration is disabled, show loading state while redirecting
   if (!registrationEnabled) {
     return (
-      <AnimatedBackground patternColor="primary" colorScheme="indigo">
-        <div className="w-full max-w-md px-4">
-          <AnimatedAuthCard
-            title={t('redirecting')}
-            description={t('redirectingToWaitlist')}
-            colorScheme="indigo"
-            contentClassName="flex flex-col space-y-4 items-center justify-center"
-          >
-            <div className="py-4">
-              <div className="animate-spin h-8 w-8 border-4 border-primary border-t-transparent rounded-full"></div>
-            </div>
-          </AnimatedAuthCard>
-        </div>
-      </AnimatedBackground>
+      <AuthPageShell colorScheme="indigo">
+        <AnimatedAuthCard
+          title={t('redirecting')}
+          description={t('redirectingToWaitlist')}
+          colorScheme="indigo"
+          contentClassName="flex flex-col space-y-4 items-center justify-center"
+        >
+          <div className="py-4">
+            <div className="animate-spin h-8 w-8 border-4 border-primary border-t-transparent rounded-full"></div>
+          </div>
+        </AnimatedAuthCard>
+      </AuthPageShell>
     );
   }
 
@@ -78,17 +76,15 @@ export default function RecruiterRegisterPage() {
   );
 
   return (
-    <AnimatedBackground patternColor="primary" colorScheme="purple">
-      <div className="w-full max-w-md px-4">
-        <AnimatedAuthCard
-          title={t('recruiterRegistration.title')}
-          description={t('recruiterRegistration.description')}
-          colorScheme="purple"
-          footer={footerContent}
-        >
-          <RegisterForm role="recruiter" />
-        </AnimatedAuthCard>
-      </div>
-    </AnimatedBackground>
+    <AuthPageShell colorScheme="purple">
+      <AnimatedAuthCard
+        title={t('recruiterRegistration.title')}
+        description={t('recruiterRegistration.description')}
+        colorScheme="purple"
+        footer={footerContent}
+      >
+        <RegisterForm role="recruiter" />
+      </AnimatedAuthCard>
+    </AuthPageShell>
   );
 }

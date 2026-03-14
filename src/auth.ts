@@ -131,15 +131,23 @@ export const {
         password: { label: 'Password', type: 'password' },
         role: { label: 'Role', type: 'text' },
       },
-      async authorize(credentials) {
+      async authorize(credentials, request) {
         if (!credentials) return null;
 
         try {
           // Validate credentials
           const { email, password, role } = loginSchema.parse(credentials);
 
+          // Prefer explicit env URL, then current request host to avoid cross-origin mismatches.
+          const host = request?.headers?.get('host');
+          const protocol = process.env.NODE_ENV === 'development' ? 'http' : 'https';
+          const authBaseUrl =
+            process.env.AUTH_URL ||
+            process.env.NEXTAUTH_URL ||
+            (host ? `${protocol}://${host}` : 'http://localhost:3000');
+
           // Make a request to our API route for authentication
-          const response = await fetch(`${process.env.AUTH_URL}/api/auth/login`, {
+          const response = await fetch(`${authBaseUrl}/api/auth/login`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

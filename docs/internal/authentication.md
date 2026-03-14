@@ -138,7 +138,6 @@ The `authorized` callback in NextAuth implements comprehensive route-level acces
 | `/terms`                   | Terms of service       |
 | `/jobs`                    | Public job board       |
 | `/jobs/*`                  | Individual job pages   |
-| `/demo/*`                  | Demo booking           |
 | `/api/contact`             | Contact form API       |
 | `/api/wishlist`            | Waitlist API           |
 | `/api/jobs/list`           | Public job listing API |

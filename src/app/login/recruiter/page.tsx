@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
+import { AuthPageShell } from '@/components/auth/auth-page-shell';
 import { LoginForm } from '@/components/auth/login-form';
-import { AnimatedBackground } from '@/components/ui/animated-background';
 import { AnimatedAuthCard } from '@/components/ui/auth-card';
 
 export default function RecruiterLoginPage() {
@@ -46,17 +46,15 @@ export default function RecruiterLoginPage() {
   );
 
   return (
-    <AnimatedBackground patternColor="primary" colorScheme="purple">
-      <div className="w-full max-w-md px-4">
-        <AnimatedAuthCard
-          title={t('loginAs.recruiter')}
-          description={t('recruiterLoginDescription')}
-          colorScheme="purple"
-          footer={footerContent}
-        >
-          <LoginForm role="recruiter" />
-        </AnimatedAuthCard>
-      </div>
-    </AnimatedBackground>
+    <AuthPageShell colorScheme="purple">
+      <AnimatedAuthCard
+        title={t('loginAs.recruiter')}
+        description={t('recruiterLoginDescription')}
+        colorScheme="purple"
+        footer={footerContent}
+      >
+        <LoginForm role="recruiter" />
+      </AnimatedAuthCard>
+    </AuthPageShell>
   );
 }

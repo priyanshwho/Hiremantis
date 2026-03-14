@@ -7,7 +7,6 @@ import { getLocale } from 'next-intl/server';
 import NextTopLoader from 'nextjs-toploader';
 import { Toaster } from 'sonner';
 
-import { FloatingControls } from '@/components/floating-controls';
 import MicrosoftClarity from '@/lib/microsoft-clarity';
 import PostHogScript from '@/lib/posthog-script';
 import RootProvider from '@/provider/root-provider';
@@ -54,7 +53,6 @@ export default async function RootLayout({
         <NextTopLoader color="hsl(var(--primary))" />
         <RootProvider>
           <div className="relative flex min-h-screen flex-col">
-            <FloatingControls />
             <MicrosoftClarity />
             <PostHogScript />
             <Analytics />

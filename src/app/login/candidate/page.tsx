@@ -5,8 +5,8 @@ import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 
+import { AuthPageShell } from '@/components/auth/auth-page-shell';
 import { LoginForm } from '@/components/auth/login-form';
-import { AnimatedBackground } from '@/components/ui/animated-background';
 import { AnimatedAuthCard } from '@/components/ui/auth-card';
 
 export default function CandidateLoginPage() {
@@ -50,17 +50,15 @@ export default function CandidateLoginPage() {
   );
 
   return (
-    <AnimatedBackground patternColor="primary" colorScheme="blue">
-      <div className="w-full max-w-md px-4">
-        <AnimatedAuthCard
-          title={t('candidateLogin.title')}
-          description={t('candidateLoginDescription')}
-          colorScheme="blue"
-          footer={footerContent}
-        >
-          <LoginForm role="candidate" callbackUrl={redirectUrl || undefined} />
-        </AnimatedAuthCard>
-      </div>
-    </AnimatedBackground>
+    <AuthPageShell colorScheme="blue">
+      <AnimatedAuthCard
+        title={t('candidateLogin.title')}
+        description={t('candidateLoginDescription')}
+        colorScheme="blue"
+        footer={footerContent}
+      >
+        <LoginForm role="candidate" callbackUrl={redirectUrl || undefined} />
+      </AnimatedAuthCard>
+    </AuthPageShell>
   );
 }

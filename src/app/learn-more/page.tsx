@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import React from 'react';
 
+import { LandingNavbar } from '@/components/landing-navbar';
 import { Button } from '@/components/ui/button';
 
 const fadeIn = {
@@ -98,6 +99,8 @@ export default function LearnMorePage() {
 
   return (
     <div className="flex min-h-screen flex-col">
+      <LandingNavbar />
+
       {/* Hero Section */}
       <section className="relative py-10 overflow-hidden">
         {/* Animated background */}
@@ -116,7 +119,7 @@ export default function LearnMorePage() {
             <Image
               height={200}
               width={650}
-              src="/images/HireBlue-full-logo.svg"
+              src="/images/hiremantis-full-logo.svg"
               alt="HireBlue"
               className="h-20 md:h-24 w-auto max-w-full dark:invert-[0.15] dark:brightness-110 mb-6"
               priority
