@@ -23,6 +23,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { TypeAnimation } from 'react-type-animation';
 
 import { LandingNavbar } from '@/components/landing-navbar';
+import { AnimatedBackground } from '@/components/ui/animated-background';
 import { Button } from '@/components/ui/button';
 import { Footer } from '@/components/ui/footer';
 
@@ -77,7 +78,7 @@ export default function Home() {
     1500,
   ];
 
-  const descriptionSequence = [
+  const _descriptionSequence = [
     t('typingAnimation.descriptions.transform'),
     2000,
     t('typingAnimation.descriptions.datadriven'),
@@ -91,89 +92,127 @@ export default function Home() {
       <LandingNavbar />
 
       {/* Hero Section */}
-      <section className="relative w-full overflow-hidden pb-18">
-        <div className="landing-hero-media absolute inset-0" />
-        <div className="landing-hero-fade absolute inset-0" />
-        <div className="absolute inset-0 bg-[url('/patterns/grid.svg')] opacity-16" />
+      <AnimatedBackground
+        colorScheme="cyan"
+        patternOpacity={0.2}
+        className="pb-5 pt-8 md:pb-5 md:pt-8"
+      >
+        <div className="absolute inset-0 z-0 opacity-40">
+          <div className="absolute top-0 left-0 h-[500px] w-[500px] rounded-full bg-blue-600/30 dark:bg-blue-500/30 blur-[120px] animate-pulse-slow"></div>
+          <div
+            className="absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-teal-600/30 dark:bg-teal-500/30 blur-[120px] animate-pulse-slow"
+            style={{ animationDelay: '2s' }}
+          ></div>
+          <div
+            className="absolute top-1/2 right-1/4 h-[300px] w-[300px] rounded-full bg-cyan-600/30 dark:bg-cyan-500/30 blur-[100px] animate-pulse-slow"
+            style={{ animationDelay: '1s' }}
+          ></div>
+          <div
+            className="absolute top-1/3 left-1/4 h-[250px] w-[250px] rounded-full bg-cyan-600/30 dark:bg-cyan-500/30 blur-[90px] animate-pulse-slow"
+            style={{ animationDelay: '3s' }}
+          ></div>
+        </div>
+
+        {/* Animated pattern overlay */}
+        <div className="absolute inset-0 z-0 opacity-10">
+          <div className="h-full w-full bg-[url('/patterns/grid.svg')] bg-repeat opacity-20"></div>
+        </div>
+
+        <div className="absolute right-10 top-20 hidden md:block">
+          <motion.div
+            className="relative h-[300px] w-[300px]"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.5 }}
+          >
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 via-cyan-500/20 to-teal-500/20 animate-float"></div>
+            <div
+              className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/10 via-cyan-500/10 to-teal-500/10 animate-float"
+              style={{ animationDelay: '1s' }}
+            ></div>
+            <div
+              className="absolute inset-0 rounded-full border border-primary/20 animate-float"
+              style={{ animationDelay: '2s' }}
+            ></div>
+          </motion.div>
+        </div>
 
         <motion.div
-          className="container relative z-10 mx-auto px-4 pb-48 pt-24 text-center md:pt-30"
+          className="container relative z-10 mx-auto flex flex-col items-center justify-center px-4 text-center"
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
         >
           <motion.div
-            className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/35 bg-white/12 px-4 py-1.5 text-sm font-medium text-white/90 backdrop-blur-sm"
+            className="mb-6 inline-flex items-center gap-2 rounded-full bg-secondary/80 px-4 py-1.5 text-sm font-medium"
             variants={fadeIn}
           >
-            <Sparkles size={16} className="text-emerald-300" />
+            <Sparkles size={16} className="text-primary" />
             {t('hero.aiPoweredRecruitment')}
+          </motion.div>
+          <motion.div variants={fadeIn} className="mb-8">
+            {/* <Image
+              width={650}
+              height={200}
+              src="/images/hiremantis-full-logo.svg"
+              alt="HireBlue"
+              className="h-20 md:h-24 w-auto max-w-full dark:invert-[0.15] dark:brightness-110 mb-6"
+              priority
+            /> */}
           </motion.div>
 
           <motion.h1
-            className="mx-auto mb-5 max-w-4xl text-balance text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-7xl"
+            className="mb-6 text-center text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl"
             variants={fadeIn}
           >
-            {t('hero.revolutionizeHiring')}{' '}
-            <span className="text-white/88">
+            <span>{t('hero.revolutionizeHiring')} </span>
+            <span className="bg-gradient-to-r from-primary via-cyan-500 to-teal-500 bg-clip-text text-transparent">
               <TypeAnimation
-                key={locale}
+                key={locale} // Add key prop to force re-render on locale change
                 sequence={headingSequence}
                 wrapper="span"
                 speed={50}
                 repeat={Infinity}
+                className="animate-gradient"
               />
             </span>
           </motion.h1>
 
-          <motion.p className="mx-auto mb-8 max-w-2xl text-lg text-white/76" variants={fadeIn}>
-            <TypeAnimation
-              key={`${locale}-description`}
-              sequence={descriptionSequence}
-              wrapper="span"
-              speed={65}
-              repeat={Infinity}
-            />
-          </motion.p>
-
-          <motion.div
-            className="mx-auto mb-8 flex max-w-md items-center gap-2 landing-glass-input rounded-full p-1.5"
+          <motion.p
+            className="mb-8 max-w-2xl text-center text-lg text-muted-foreground"
             variants={fadeIn}
           >
-            <input
-              aria-label="Work email"
-              placeholder="Work email"
-              className="h-10 flex-1 bg-transparent px-4 text-sm text-white placeholder:text-white/60 outline-none"
-            />
-            <Button
-              size="lg"
-              className="h-10 rounded-full border-0 bg-white px-5 text-slate-900 hover:bg-white/90"
-            >
-              Start now
-            </Button>
-          </motion.div>
+            {t('hero.description')}
+          </motion.p>
 
-          <motion.div className="flex flex-wrap justify-center gap-3" variants={fadeIn}>
-            <Link
-              href="/login"
-              className="rounded-full border border-white/35 bg-white/10 px-4 py-1.5 text-sm font-medium text-white transition hover:bg-white/18"
-            >
-              {common('buttons.getStarted')}
+          <motion.div className="flex flex-wrap justify-center gap-4" variants={fadeIn}>
+            <Link href="/login">
+              <Button size="lg" className="gap-2 group relative overflow-hidden">
+                <span className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-teal-500/20 opacity-0 transition-opacity group-hover:opacity-100"></span>
+                <Zap size={18} className="relative z-10" />
+                <span className="relative z-10">{common('buttons.getStarted')}</span>
+              </Button>
             </Link>
-            <Link
-              href="/jobs"
-              className="rounded-full border border-white/35 bg-transparent px-4 py-1.5 text-sm font-medium text-white transition hover:bg-white/12"
-            >
-              {t('userAccess.findJobs')}
+            <Link href="/jobs">
+              <Button size="lg" variant="outline" className="gap-2 group relative overflow-hidden">
+                <span className="absolute inset-0 bg-gradient-to-r from-sky-500/20 to-cyan-500/20 opacity-0 transition-opacity group-hover:opacity-100"></span>
+                {/* <BriefcaseIcon size={18} className="relative z-10" /> */}
+                <span className="relative z-10">{t('userAccess.findJobs')}</span>
+              </Button>
             </Link>
-            <Link
-              href="/learn-more"
-              className="rounded-full border border-white/35 bg-transparent px-4 py-1.5 text-sm font-medium text-white transition hover:bg-white/12"
-            >
-              {common('buttons.howItWorks')}
+            <Link href="/learn-more">
+              <Button size="lg" variant="outline" className="gap-2 group">
+                <Search size={18} />
+                <span>{common('buttons.howItWorks')}</span>
+                <ChevronRight
+                  size={16}
+                  className="transition-transform group-hover:translate-x-1"
+                />
+              </Button>
             </Link>
           </motion.div>
 
+          {/* User Access Links */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -181,8 +220,8 @@ export default function Home() {
             className="mt-8"
           >
             <div className="flex flex-wrap justify-center gap-3">
-              <Link href="/login/candidate" className="group">
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/35 bg-white/10 px-4 py-1.5 text-base font-medium text-white backdrop-blur-sm transition group-hover:bg-white/18">
+              <Link href="/login/candidate" className="group transition-all hover:text-primary">
+                <div className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-1.5 text-base font-medium backdrop-blur-sm hover:border-primary/30 hover:bg-primary/5">
                   <UserIcon size={14} />
                   {t('userAccess.candidateLogin')}
                   <ChevronRight
@@ -191,8 +230,8 @@ export default function Home() {
                   />
                 </div>
               </Link>
-              <Link href="/login/recruiter" className="group">
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/35 bg-white/10 px-4 py-1.5 text-base font-medium text-white backdrop-blur-sm transition group-hover:bg-white/18">
+              <Link href="/login/recruiter" className="group transition-all hover:text-primary">
+                <div className="inline-flex items-center gap-2 rounded-full border border-border px-4 py-1.5 text-base font-medium backdrop-blur-sm hover:border-primary/30 hover:bg-primary/5">
                   <Building2 size={14} />
                   {t('userAccess.recruiterLogin')}
                   <ChevronRight
@@ -201,48 +240,20 @@ export default function Home() {
                   />
                 </div>
               </Link>
+              {/* <Link href="/wishlist" className="group transition-all hover:text-primary">
+                <div className="inline-flex items-center gap-2 rounded-full border border-border px-3 py-1.5 text-xs font-medium backdrop-blur-sm hover:border-primary/30 hover:bg-primary/5">
+                  <Heart size={14} />
+                  {t('userAccess.wishlist')}
+                  <ChevronRight
+                    size={14}
+                    className="transition-transform group-hover:translate-x-0.5"
+                  />
+                </div>
+              </Link> */}
             </div>
           </motion.div>
         </motion.div>
-
-        <div className="container relative z-20 mx-auto -mt-34 px-4">
-          <div className="mint-shell mx-auto max-w-5xl rounded-2xl p-4 md:p-6">
-            <div className="grid gap-4 md:grid-cols-[220px_1fr_180px]">
-              <div className="rounded-xl border border-border/70 bg-background/75 p-3">
-                <div className="mb-3 h-3 w-28 rounded-full bg-muted" />
-                <div className="space-y-2">
-                  <div className="h-8 rounded-md bg-muted/80" />
-                  <div className="h-8 rounded-md bg-muted/60" />
-                  <div className="h-8 rounded-md bg-muted/50" />
-                  <div className="h-8 rounded-md bg-muted/45" />
-                </div>
-              </div>
-              <div className="rounded-xl border border-border/70 bg-background/85 p-4">
-                <div className="mb-4 flex items-center justify-between">
-                  <div className="h-3 w-24 rounded-full bg-primary/35" />
-                  <div className="h-8 w-44 rounded-full bg-muted/80" />
-                </div>
-                <div className="grid gap-3 sm:grid-cols-2">
-                  <div className="h-28 rounded-xl bg-muted/70" />
-                  <div className="h-28 rounded-xl bg-muted/60" />
-                </div>
-                <div className="mt-4 h-3 w-2/3 rounded-full bg-muted/70" />
-              </div>
-              <div className="rounded-xl border border-border/70 bg-background/75 p-3">
-                <div className="mb-3 h-3 w-20 rounded-full bg-muted" />
-                <div className="space-y-2">
-                  <div className="h-2 w-full rounded-full bg-muted/80" />
-                  <div className="h-2 w-5/6 rounded-full bg-muted/70" />
-                  <div className="h-2 w-2/3 rounded-full bg-muted/60" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <p className="mx-auto mt-3 max-w-5xl text-xs text-muted-foreground/85">
-            Add your hero artwork later by setting --landing-hero-image in src/app/globals.css.
-          </p>
-        </div>
-      </section>
+      </AnimatedBackground>
 
       {/* Features Section */}
       <section id="features" className="w-full py-20 relative overflow-hidden">
