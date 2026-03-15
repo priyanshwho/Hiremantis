@@ -29,12 +29,11 @@ export function FloatingControls({ className, side = 'right' }: FloatingControls
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.3 }}
       className={cn(
-        'fixed z-50 flex flex-col items-center gap-4 p-3 rounded-lg',
-        'bg-gradient-to-br from-primary/10 via-background to-primary/5',
-        'dark:from-primary/20 dark:via-background/90 dark:to-primary/10',
-        'backdrop-blur-md border border-primary/20',
-        'shadow-lg shadow-primary/5',
-        'dark:border-primary/30 dark:shadow-primary/10',
+        'fixed z-50 flex flex-col items-center gap-4 rounded-2xl p-3',
+        'bg-gradient-to-br from-primary/18 via-background/85 to-accent/20',
+        'dark:from-primary/25 dark:via-background/90 dark:to-accent/15',
+        'border border-border/70 backdrop-blur-xl',
+        'shadow-[0_16px_34px_-24px_rgba(10,29,54,0.7)]',
         side === 'left' ? 'left-4' : 'right-4',
         'top-1/2 -translate-y-1/2',
         className
@@ -44,7 +43,7 @@ export function FloatingControls({ className, side = 'right' }: FloatingControls
         <Button
           variant="ghost"
           size="icon"
-          className="rounded-full bg-primary/10 text-primary border border-primary/20"
+          className="rounded-full border border-primary/30 bg-primary/12 text-primary"
         >
           <Home size={20} />
           <span className="sr-only">Home</span>

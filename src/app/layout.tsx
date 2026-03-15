@@ -2,7 +2,7 @@ import './globals.css';
 
 import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Manrope, Space_Grotesk } from 'next/font/google';
 import { getLocale } from 'next-intl/server';
 import NextTopLoader from 'nextjs-toploader';
 import { Toaster } from 'sonner';
@@ -11,8 +11,13 @@ import MicrosoftClarity from '@/lib/microsoft-clarity';
 import PostHogScript from '@/lib/posthog-script';
 import RootProvider from '@/provider/root-provider';
 
-const inter = Inter({
-  variable: '--font-inter',
+const manrope = Manrope({
+  variable: '--font-manrope',
+  subsets: ['latin'],
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: '--font-space-grotesk',
   subsets: ['latin'],
 });
 
@@ -49,7 +54,7 @@ export default async function RootLayout({
   const locale = await getLocale();
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className={`${inter.variable} antialiased`}>
+      <body className={`${manrope.variable} ${spaceGrotesk.variable} antialiased`}>
         <NextTopLoader color="hsl(var(--primary))" />
         <RootProvider>
           <div className="relative flex min-h-screen flex-col">

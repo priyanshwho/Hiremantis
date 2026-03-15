@@ -22,7 +22,10 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton asChild className="data-[slot=sidebar-menu-button]:!p-1.5">
+            <SidebarMenuButton
+              asChild
+              className="data-[slot=sidebar-menu-button]:!p-1.5 rounded-xl border border-sidebar-border/80 bg-sidebar-accent/50"
+            >
               <Link href="/">
                 <Image
                   src="/images/HireBlue-logo.svg"
@@ -31,7 +34,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
                   height={24}
                   className="!size-6 mr-2 dark:invert-[0.15] dark:brightness-110"
                 />
-                <span className="text-base font-semibold">HireBlue</span>
+                <span className="text-base font-semibold text-gradient-brand">HireBlue</span>
               </Link>
             </SidebarMenuButton>
           </SidebarMenuItem>

@@ -23,7 +23,7 @@ export function ThemeToggle() {
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
-          className="relative h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center border border-primary/20 text-primary"
+          className="relative flex h-10 w-10 items-center justify-center rounded-full border border-primary/30 bg-gradient-to-br from-primary/15 via-background to-accent/20 text-primary shadow-[0_12px_24px_-20px_rgba(14,85,152,0.95)]"
         >
           <SunIcon className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
           <MoonIcon className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />
@@ -32,12 +32,12 @@ export function ThemeToggle() {
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align="end"
-        className="animate-in fade-in-50 zoom-in-95 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95"
+        className="animate-in fade-in-50 zoom-in-95 min-w-40 rounded-xl border-border/70 bg-popover/95 shadow-[0_20px_42px_-30px_rgba(15,24,44,0.65)] backdrop-blur-md data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=closed]:zoom-out-95"
       >
         <DropdownMenuItem
           onClick={() => setTheme('light')}
           className={`flex items-center gap-2 cursor-pointer ${
-            theme === 'light' ? 'bg-accent text-accent-foreground font-medium' : ''
+            theme === 'light' ? 'bg-accent/80 text-accent-foreground font-medium' : ''
           }`}
         >
           <SunIcon className="h-4 w-4" />
@@ -53,7 +53,7 @@ export function ThemeToggle() {
         <DropdownMenuItem
           onClick={() => setTheme('dark')}
           className={`flex items-center gap-2 cursor-pointer ${
-            theme === 'dark' ? 'bg-accent text-accent-foreground font-medium' : ''
+            theme === 'dark' ? 'bg-accent/80 text-accent-foreground font-medium' : ''
           }`}
         >
           <MoonIcon className="h-4 w-4" />
@@ -69,7 +69,7 @@ export function ThemeToggle() {
         <DropdownMenuItem
           onClick={() => setTheme('system')}
           className={`flex items-center gap-2 cursor-pointer ${
-            theme === 'system' ? 'bg-accent text-accent-foreground font-medium' : ''
+            theme === 'system' ? 'bg-accent/80 text-accent-foreground font-medium' : ''
           }`}
         >
           <LaptopIcon className="h-4 w-4" />

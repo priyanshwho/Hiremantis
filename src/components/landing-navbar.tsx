@@ -24,13 +24,13 @@ const navLinks = [
 
 export function LandingNavbar() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/70 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/60 backdrop-blur-2xl">
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="group flex items-center gap-2">
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-sky-500/20 via-blue-500/20 to-cyan-500/20 ring-1 ring-sky-500/25">
-            <span className="h-2.5 w-2.5 rounded-full bg-sky-500" />
+          <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-primary/30 bg-gradient-to-br from-cyan-400/20 via-blue-500/25 to-teal-400/20 shadow-[0_12px_28px_-18px_rgba(30,132,199,0.8)] ring-1 ring-white/30">
+            <span className="h-2.5 w-2.5 rounded-full bg-primary" />
           </span>
-          <span className="bg-gradient-to-r from-foreground to-foreground/70 bg-clip-text text-lg font-semibold tracking-tight text-transparent transition-all group-hover:from-sky-600 group-hover:to-blue-500 dark:group-hover:from-sky-400 dark:group-hover:to-cyan-300">
+          <span className="text-gradient-brand text-lg font-semibold tracking-tight transition-all group-hover:brightness-110">
             HireBlue
           </span>
         </Link>
@@ -40,7 +40,7 @@ export function LandingNavbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-full px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-sky-500/10 hover:text-foreground"
+              className="rounded-full px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-primary/10 hover:text-foreground"
             >
               {link.label}
             </Link>
@@ -58,7 +58,7 @@ export function LandingNavbar() {
           <Link href="/register">
             <Button
               variant="ghost"
-              className="rounded-full border border-sky-500/30 bg-sky-500/10 px-4 text-sky-700 hover:bg-sky-500/20 dark:text-sky-300"
+              className="rounded-full border border-primary/30 bg-primary/10 px-4 text-primary hover:bg-primary/20"
             >
               Get Started
             </Button>
@@ -73,7 +73,10 @@ export function LandingNavbar() {
                 <span className="sr-only">Open navigation menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-[84vw] max-w-sm border-l border-border/50">
+            <SheetContent
+              side="right"
+              className="w-[84vw] max-w-sm border-l border-border/60 bg-background/90 backdrop-blur-2xl"
+            >
               <SheetHeader>
                 <SheetTitle>Navigate</SheetTitle>
               </SheetHeader>
@@ -83,7 +86,7 @@ export function LandingNavbar() {
                     <SheetClose asChild key={link.href}>
                       <Link
                         href={link.href}
-                        className="rounded-xl px-3 py-2 text-sm font-medium text-foreground/90 transition-colors hover:bg-sky-500/10"
+                        className="rounded-xl px-3 py-2 text-sm font-medium text-foreground/90 transition-colors hover:bg-primary/10"
                       >
                         {link.label}
                       </Link>
@@ -108,7 +111,7 @@ export function LandingNavbar() {
                     <Link href="/register">
                       <Button
                         variant="ghost"
-                        className="w-full rounded-full border border-sky-500/30 bg-sky-500/10 text-sky-700 hover:bg-sky-500/20 dark:text-sky-300"
+                        className="w-full rounded-full border border-primary/30 bg-primary/10 text-primary hover:bg-primary/20"
                       >
                         Get Started
                       </Button>

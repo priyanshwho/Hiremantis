@@ -80,7 +80,7 @@ export default function Home() {
     1500,
   ];
 
-  const descriptionSequence = [
+  const _descriptionSequence = [
     t('typingAnimation.descriptions.transform'),
     2000,
     t('typingAnimation.descriptions.datadriven'),
@@ -95,18 +95,18 @@ export default function Home() {
 
       {/* Hero Section */}
       <AnimatedBackground
-        colorScheme="indigo"
+        colorScheme="cyan"
         patternOpacity={0.2}
         className="pb-5 pt-8 md:pb-5 md:pt-8"
       >
         <div className="absolute inset-0 z-0 opacity-40">
           <div className="absolute top-0 left-0 h-[500px] w-[500px] rounded-full bg-blue-600/30 dark:bg-blue-500/30 blur-[120px] animate-pulse-slow"></div>
           <div
-            className="absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-purple-600/30 dark:bg-purple-500/30 blur-[120px] animate-pulse-slow"
+            className="absolute bottom-0 right-0 h-[400px] w-[400px] rounded-full bg-teal-600/30 dark:bg-teal-500/30 blur-[120px] animate-pulse-slow"
             style={{ animationDelay: '2s' }}
           ></div>
           <div
-            className="absolute top-1/2 right-1/4 h-[300px] w-[300px] rounded-full bg-indigo-600/30 dark:bg-indigo-500/30 blur-[100px] animate-pulse-slow"
+            className="absolute top-1/2 right-1/4 h-[300px] w-[300px] rounded-full bg-cyan-600/30 dark:bg-cyan-500/30 blur-[100px] animate-pulse-slow"
             style={{ animationDelay: '1s' }}
           ></div>
           <div
@@ -127,9 +127,9 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
           >
-            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 via-blue-500/20 to-purple-500/20 animate-float"></div>
+            <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/20 via-cyan-500/20 to-teal-500/20 animate-float"></div>
             <div
-              className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/10 via-blue-500/10 to-purple-500/10 animate-float"
+              className="absolute inset-0 rounded-full bg-gradient-to-br from-primary/10 via-cyan-500/10 to-teal-500/10 animate-float"
               style={{ animationDelay: '1s' }}
             ></div>
             <div
@@ -168,7 +168,7 @@ export default function Home() {
             variants={fadeIn}
           >
             <span>{t('hero.revolutionizeHiring')} </span>
-            <span className="bg-gradient-to-r from-primary via-blue-500 to-purple-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary via-cyan-500 to-teal-500 bg-clip-text text-transparent">
               <TypeAnimation
                 key={locale} // Add key prop to force re-render on locale change
                 sequence={headingSequence}
@@ -190,14 +190,14 @@ export default function Home() {
           <motion.div className="flex flex-wrap justify-center gap-4" variants={fadeIn}>
             <Link href="/login">
               <Button size="lg" className="gap-2 group relative overflow-hidden">
-                <span className="absolute inset-0 bg-gradient-to-r from-blue-500/20 to-purple-500/20 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                <span className="absolute inset-0 bg-gradient-to-r from-cyan-500/20 to-teal-500/20 opacity-0 transition-opacity group-hover:opacity-100"></span>
                 <Zap size={18} className="relative z-10" />
                 <span className="relative z-10">{common('buttons.getStarted')}</span>
               </Button>
             </Link>
             <Link href="/jobs">
               <Button size="lg" variant="outline" className="gap-2 group relative overflow-hidden">
-                <span className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-cyan-500/20 opacity-0 group-hover:opacity-100 transition-opacity"></span>
+                <span className="absolute inset-0 bg-gradient-to-r from-sky-500/20 to-cyan-500/20 opacity-0 transition-opacity group-hover:opacity-100"></span>
                 <BriefcaseIcon size={18} className="relative z-10" />
                 <span className="relative z-10">{t('userAccess.findJobs')}</span>
               </Button>
