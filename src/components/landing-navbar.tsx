@@ -24,13 +24,13 @@ const navLinks = [
 
 export function LandingNavbar() {
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/60 backdrop-blur-2xl">
+    <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/72 backdrop-blur-xl dark:bg-background/66">
       <div className="mx-auto flex h-16 w-full max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/" className="group flex items-center gap-2">
-          <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl border border-primary/30 bg-gradient-to-br from-cyan-400/20 via-blue-500/25 to-teal-400/20 shadow-[0_12px_28px_-18px_rgba(30,132,199,0.8)] ring-1 ring-white/30">
-            <span className="h-2.5 w-2.5 rounded-full bg-primary" />
+          <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-emerald-400 via-emerald-500 to-teal-600 shadow-[0_8px_22px_-14px_rgba(16,185,129,0.9)]">
+            <span className="h-2.5 w-2.5 rounded-full bg-white/95" />
           </span>
-          <span className="text-gradient-brand text-lg font-semibold tracking-tight transition-all group-hover:brightness-110">
+          <span className="text-lg font-semibold tracking-tight text-foreground transition-colors group-hover:text-foreground/80">
             HireBlue
           </span>
         </Link>
@@ -40,7 +40,7 @@ export function LandingNavbar() {
             <Link
               key={link.href}
               href={link.href}
-              className="rounded-full px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-primary/10 hover:text-foreground"
+              className="rounded-full px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-foreground/6 hover:text-foreground"
             >
               {link.label}
             </Link>
@@ -51,15 +51,12 @@ export function LandingNavbar() {
           <ThemeToggle />
           <LanguageSelector />
           <Link href="/login">
-            <Button variant="ghost" className="rounded-full px-4">
+            <Button variant="ghost" className="rounded-full bg-muted/70 px-4 hover:bg-muted">
               Login
             </Button>
           </Link>
           <Link href="/register">
-            <Button
-              variant="ghost"
-              className="rounded-full border border-primary/30 bg-primary/10 px-4 text-primary hover:bg-primary/20"
-            >
+            <Button className="rounded-full border-0 bg-foreground px-4 text-background hover:bg-foreground/90">
               Get Started
             </Button>
           </Link>
@@ -75,7 +72,7 @@ export function LandingNavbar() {
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="w-[84vw] max-w-sm border-l border-border/60 bg-background/90 backdrop-blur-2xl"
+              className="w-[84vw] max-w-sm border-l border-border/60 bg-background/95 backdrop-blur-2xl"
             >
               <SheetHeader>
                 <SheetTitle>Navigate</SheetTitle>
@@ -86,7 +83,7 @@ export function LandingNavbar() {
                     <SheetClose asChild key={link.href}>
                       <Link
                         href={link.href}
-                        className="rounded-xl px-3 py-2 text-sm font-medium text-foreground/90 transition-colors hover:bg-primary/10"
+                        className="rounded-xl px-3 py-2 text-sm font-medium text-foreground/90 transition-colors hover:bg-muted"
                       >
                         {link.label}
                       </Link>
@@ -109,10 +106,7 @@ export function LandingNavbar() {
                   </SheetClose>
                   <SheetClose asChild>
                     <Link href="/register">
-                      <Button
-                        variant="ghost"
-                        className="w-full rounded-full border border-primary/30 bg-primary/10 text-primary hover:bg-primary/20"
-                      >
+                      <Button className="w-full rounded-full border-0 bg-foreground text-background hover:bg-foreground/90">
                         Get Started
                       </Button>
                     </Link>
