@@ -22,6 +22,7 @@ import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { TypeAnimation } from 'react-type-animation';
 
+import { DirectionalScrollReveal } from '@/components/directional-scroll-reveal';
 import { LandingNavbar } from '@/components/landing-navbar';
 import { ScrollReveal } from '@/components/scroll-reveal';
 import { AnimatedBackground } from '@/components/ui/animated-background';
@@ -97,7 +98,7 @@ export default function Home() {
       <AnimatedBackground
         colorScheme="cyan"
         patternOpacity={0.2}
-        className="pb-5 pt-8 md:pb-5 md:pt-8 relative overflow-hidden"
+        className="py-0 md:py-0 relative overflow-hidden"
       >
         {/* Video Background */}
         <VideoBackground src="https://stream.mux.com/Si6ej2ZRrxRCnTYBXSScDRCdd7CGnyTqiPszZcw3z4I.m3u8" />
@@ -392,9 +393,9 @@ export default function Home() {
             {/* Connection lines for desktop */}
             <div className="absolute left-1/2 top-24 hidden h-[calc(100%-6rem)] w-0.5 -translate-x-1/2 bg-gradient-to-b from-blue-500 via-purple-500 to-green-500 md:block"></div>
 
-            <ScrollReveal stagger={0.2} yAmount={80}>
-              <div className="relative space-y-12 md:space-y-24">
-                {/* Step 1: Recruiter creates job posting */}
+            <div className="relative space-y-12 md:space-y-24">
+              {/* Step 1: Recruiter creates job posting - FROM LEFT */}
+              <DirectionalScrollReveal direction="left" delay={0}>
                 <motion.div
                   className="flex flex-col md:flex-row md:items-center md:justify-between"
                   data-scroll-reveal
@@ -432,8 +433,10 @@ export default function Home() {
                     </motion.div>
                   </div>
                 </motion.div>
+              </DirectionalScrollReveal>
 
-                {/* Step 2: System generates job URL */}
+              {/* Step 2: System generates job URL - FROM RIGHT */}
+              <DirectionalScrollReveal direction="right" delay={0.1}>
                 <motion.div
                   className="flex flex-col md:flex-row-reverse md:items-center md:justify-between"
                   data-scroll-reveal
@@ -471,8 +474,10 @@ export default function Home() {
                     </motion.div>
                   </div>
                 </motion.div>
+              </DirectionalScrollReveal>
 
-                {/* Step 3: Candidate applies via URL */}
+              {/* Step 3: Candidate applies via URL - FROM LEFT */}
+              <DirectionalScrollReveal direction="left" delay={0.2}>
                 <motion.div
                   className="flex flex-col md:flex-row md:items-center md:justify-between"
                   data-scroll-reveal
@@ -510,8 +515,10 @@ export default function Home() {
                     </motion.div>
                   </div>
                 </motion.div>
+              </DirectionalScrollReveal>
 
-                {/* Step 4: AI analyzes resume */}
+              {/* Step 4: AI analyzes resume - FROM RIGHT */}
+              <DirectionalScrollReveal direction="right" delay={0.3}>
                 <motion.div
                   className="flex flex-col md:flex-row-reverse md:items-center md:justify-between"
                   data-scroll-reveal
@@ -549,8 +556,10 @@ export default function Home() {
                     </motion.div>
                   </div>
                 </motion.div>
+              </DirectionalScrollReveal>
 
-                {/* Step 5: AI conducts interview */}
+              {/* Step 5: AI conducts interview - FROM LEFT */}
+              <DirectionalScrollReveal direction="left" delay={0.4}>
                 <motion.div
                   className="flex flex-col md:flex-row md:items-center md:justify-between"
                   data-scroll-reveal
@@ -588,8 +597,10 @@ export default function Home() {
                     </motion.div>
                   </div>
                 </motion.div>
+              </DirectionalScrollReveal>
 
-                {/* Step 6: System provides feedback */}
+              {/* Step 6: System provides feedback - FROM RIGHT */}
+              <DirectionalScrollReveal direction="right" delay={0.5}>
                 <motion.div
                   className="flex flex-col md:flex-row-reverse md:items-center md:justify-between"
                   data-scroll-reveal
@@ -627,8 +638,8 @@ export default function Home() {
                     </motion.div>
                   </div>
                 </motion.div>
-              </div>
-            </ScrollReveal>
+              </DirectionalScrollReveal>
+            </div>
           </div>
 
           <motion.div
