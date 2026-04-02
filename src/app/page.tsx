@@ -26,6 +26,7 @@ import { LandingNavbar } from '@/components/landing-navbar';
 import { AnimatedBackground } from '@/components/ui/animated-background';
 import { Button } from '@/components/ui/button';
 import { Footer } from '@/components/ui/footer';
+import { VideoBackground } from '@/components/video-background';
 
 // Animation variants
 const fadeIn = {
@@ -95,8 +96,11 @@ export default function Home() {
       <AnimatedBackground
         colorScheme="cyan"
         patternOpacity={0.2}
-        className="pb-5 pt-8 md:pb-5 md:pt-8"
+        className="pb-5 pt-8 md:pb-5 md:pt-8 relative overflow-hidden"
       >
+        {/* Video Background */}
+        <VideoBackground src="https://stream.mux.com/Si6ej2ZRrxRCnTYBXSScDRCdd7CGnyTqiPszZcw3z4I.m3u8" />
+
         <div className="absolute inset-0 z-0 opacity-40">
           <div className="absolute top-0 left-0 h-[500px] w-[500px] rounded-full bg-blue-600/30 dark:bg-blue-500/30 blur-[120px] animate-pulse-slow"></div>
           <div
