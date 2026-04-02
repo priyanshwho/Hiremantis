@@ -23,6 +23,7 @@ import { useLocale, useTranslations } from 'next-intl';
 import { TypeAnimation } from 'react-type-animation';
 
 import { LandingNavbar } from '@/components/landing-navbar';
+import { ScrollReveal } from '@/components/scroll-reveal';
 import { AnimatedBackground } from '@/components/ui/animated-background';
 import { Button } from '@/components/ui/button';
 import { Footer } from '@/components/ui/footer';
@@ -291,71 +292,66 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <motion.div
-            className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={staggerContainer}
-          >
-            {[
-              {
-                icon: <FileText className="text-blue-500" />,
-                title: t('featuresSection.smartJobPosting.title'),
-                description: t('featuresSection.smartJobPosting.description'),
-                color: 'blue',
-              },
-              {
-                icon: <LinkIcon className="text-indigo-500" />,
-                title: t('featuresSection.uniqueApplicationLinks.title'),
-                description: t('featuresSection.uniqueApplicationLinks.description'),
-                color: 'indigo',
-              },
-              {
-                icon: <Upload className="text-purple-500" />,
-                title: t('featuresSection.resumeAnalysis.title'),
-                description: t('featuresSection.resumeAnalysis.description'),
-                color: 'purple',
-              },
-              {
-                icon: <MessageSquareText className="text-pink-500" />,
-                title: t('featuresSection.aiPoweredInterviews.title'),
-                description: t('featuresSection.aiPoweredInterviews.description'),
-                color: 'pink',
-              },
-              {
-                icon: <ClipboardCheck className="text-green-500" />,
-                title: t('featuresSection.comprehensiveFeedback.title'),
-                description: t('featuresSection.comprehensiveFeedback.description'),
-                color: 'green',
-              },
-              {
-                icon: <LineChart className="text-orange-500" />,
-                title: t('featuresSection.dataDrivenInsights.title'),
-                description: t('featuresSection.dataDrivenInsights.description'),
-                color: 'orange',
-              },
-            ].map((feature, index) => (
-              <motion.div
-                key={index}
-                className={`group relative overflow-hidden rounded-xl border bg-card p-6 shadow-sm transition-all`}
-                variants={featureCardVariants}
-                whileHover="hover"
-              >
+          <ScrollReveal stagger={0.1} yAmount={60}>
+            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                {
+                  icon: <FileText className="text-blue-500" />,
+                  title: t('featuresSection.smartJobPosting.title'),
+                  description: t('featuresSection.smartJobPosting.description'),
+                  color: 'blue',
+                },
+                {
+                  icon: <LinkIcon className="text-indigo-500" />,
+                  title: t('featuresSection.uniqueApplicationLinks.title'),
+                  description: t('featuresSection.uniqueApplicationLinks.description'),
+                  color: 'indigo',
+                },
+                {
+                  icon: <Upload className="text-purple-500" />,
+                  title: t('featuresSection.resumeAnalysis.title'),
+                  description: t('featuresSection.resumeAnalysis.description'),
+                  color: 'purple',
+                },
+                {
+                  icon: <MessageSquareText className="text-pink-500" />,
+                  title: t('featuresSection.aiPoweredInterviews.title'),
+                  description: t('featuresSection.aiPoweredInterviews.description'),
+                  color: 'pink',
+                },
+                {
+                  icon: <ClipboardCheck className="text-green-500" />,
+                  title: t('featuresSection.comprehensiveFeedback.title'),
+                  description: t('featuresSection.comprehensiveFeedback.description'),
+                  color: 'green',
+                },
+                {
+                  icon: <LineChart className="text-orange-500" />,
+                  title: t('featuresSection.dataDrivenInsights.title'),
+                  description: t('featuresSection.dataDrivenInsights.description'),
+                  color: 'orange',
+                },
+              ].map((feature, index) => (
                 <div
-                  className={`absolute inset-0 bg-${feature.color}-500/5 opacity-0 group-hover:opacity-100 transition-opacity`}
-                ></div>
-                <div
-                  className={`absolute bottom-0 left-0 h-1 w-0 bg-${feature.color}-500 group-hover:w-full transition-all duration-300`}
-                ></div>
-                <div className={`mb-4 rounded-full bg-${feature.color}-500/10 p-3 w-fit`}>
-                  {feature.icon}
+                  key={index}
+                  data-scroll-reveal
+                  className="group relative overflow-hidden rounded-xl border bg-card p-6 shadow-sm transition-all hover:y-[-5px] hover:shadow-lg"
+                >
+                  <div
+                    className={`absolute inset-0 bg-${feature.color}-500/5 opacity-0 group-hover:opacity-100 transition-opacity`}
+                  ></div>
+                  <div
+                    className={`absolute bottom-0 left-0 h-1 w-0 bg-${feature.color}-500 group-hover:w-full transition-all duration-300`}
+                  ></div>
+                  <div className={`mb-4 rounded-full bg-${feature.color}-500/10 p-3 w-fit`}>
+                    {feature.icon}
+                  </div>
+                  <h3 className="mb-2 text-xl font-semibold">{feature.title}</h3>
+                  <p className="text-muted-foreground">{feature.description}</p>
                 </div>
-                <h3 className="mb-2 text-xl font-semibold">{feature.title}</h3>
-                <p className="text-muted-foreground">{feature.description}</p>
-              </motion.div>
-            ))}
-          </motion.div>
+              ))}
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
@@ -396,229 +392,243 @@ export default function Home() {
             {/* Connection lines for desktop */}
             <div className="absolute left-1/2 top-24 hidden h-[calc(100%-6rem)] w-0.5 -translate-x-1/2 bg-gradient-to-b from-blue-500 via-purple-500 to-green-500 md:block"></div>
 
-            <motion.div
-              className="relative space-y-12 md:space-y-24"
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, amount: 0.1 }}
-              variants={staggerContainer}
-            >
-              {/* Step 1: Recruiter creates job posting */}
-              <motion.div
-                className="flex flex-col md:flex-row md:items-center md:justify-between"
-                variants={fadeIn}
-              >
-                <div className="md:w-5/12">
-                  <div className="mb-4 flex items-center gap-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-500 text-white">
-                      1
-                    </div>
-                    <h3 className="text-xl font-semibold">{t('howItWorks.steps.step1.title')}</h3>
-                  </div>
-                  <p className="text-muted-foreground">{t('howItWorks.steps.step1.description')}</p>
-                </div>
-
-                <div className="relative mt-6 md:mt-0 md:w-5/12">
-                  <div className="absolute -left-4 top-1/2 hidden h-4 w-4 -translate-y-1/2 rounded-full bg-blue-500 md:block"></div>
-                  <motion.div
-                    className="rounded-xl border bg-card p-6 shadow-md"
-                    whileHover={{ y: -5 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="mb-3 flex justify-between">
-                      <div className="rounded-md bg-blue-500/10 px-3 py-1 text-sm text-blue-500">
-                        {t('howItWorks.steps.step1.label')}
+            <ScrollReveal stagger={0.2} yAmount={80}>
+              <div className="relative space-y-12 md:space-y-24">
+                {/* Step 1: Recruiter creates job posting */}
+                <motion.div
+                  className="flex flex-col md:flex-row md:items-center md:justify-between"
+                  data-scroll-reveal
+                  variants={fadeIn}
+                >
+                  <div className="md:w-5/12">
+                    <div className="mb-4 flex items-center gap-3">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-500 text-white">
+                        1
                       </div>
-                      <Building2 className="text-blue-500" size={20} />
+                      <h3 className="text-xl font-semibold">{t('howItWorks.steps.step1.title')}</h3>
                     </div>
-                    <h4 className="mb-2 font-medium">{t('howItWorks.steps.step1.cardTitle')}</h4>
-                    <p className="text-sm text-muted-foreground">
-                      {t('howItWorks.steps.step1.cardDescription')}
+                    <p className="text-muted-foreground">
+                      {t('howItWorks.steps.step1.description')}
                     </p>
-                  </motion.div>
-                </div>
-              </motion.div>
-
-              {/* Step 2: System generates job URL */}
-              <motion.div
-                className="flex flex-col md:flex-row-reverse md:items-center md:justify-between"
-                variants={fadeIn}
-              >
-                <div className="md:w-5/12">
-                  <div className="mb-4 flex items-center gap-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-500 text-white">
-                      2
-                    </div>
-                    <h3 className="text-xl font-semibold">{t('howItWorks.steps.step2.title')}</h3>
                   </div>
-                  <p className="text-muted-foreground">{t('howItWorks.steps.step2.description')}</p>
-                </div>
 
-                <div className="relative mt-6 md:mt-0 md:w-5/12">
-                  <div className="absolute -right-4 top-1/2 hidden h-4 w-4 -translate-y-1/2 rounded-full bg-indigo-500 md:block"></div>
-                  <motion.div
-                    className="rounded-xl border bg-card p-6 shadow-md"
-                    whileHover={{ y: -5 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="mb-3 flex justify-between">
-                      <div className="rounded-md bg-indigo-500/10 px-3 py-1 text-sm text-indigo-500">
-                        {t('howItWorks.steps.step2.label')}
+                  <div className="relative mt-6 md:mt-0 md:w-5/12">
+                    <div className="absolute -left-4 top-1/2 hidden h-4 w-4 -translate-y-1/2 rounded-full bg-blue-500 md:block"></div>
+                    <motion.div
+                      className="rounded-xl border bg-card p-6 shadow-md"
+                      whileHover={{ y: -5 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="mb-3 flex justify-between">
+                        <div className="rounded-md bg-blue-500/10 px-3 py-1 text-sm text-blue-500">
+                          {t('howItWorks.steps.step1.label')}
+                        </div>
+                        <Building2 className="text-blue-500" size={20} />
                       </div>
-                      <LinkIcon className="text-indigo-500" size={20} />
-                    </div>
-                    <h4 className="mb-2 font-medium">{t('howItWorks.steps.step2.cardTitle')}</h4>
-                    <p className="text-sm text-muted-foreground">
-                      {t('howItWorks.steps.step2.cardDescription')}
-                    </p>
-                  </motion.div>
-                </div>
-              </motion.div>
-
-              {/* Step 3: Candidate applies via URL */}
-              <motion.div
-                className="flex flex-col md:flex-row md:items-center md:justify-between"
-                variants={fadeIn}
-              >
-                <div className="md:w-5/12">
-                  <div className="mb-4 flex items-center gap-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-500 text-white">
-                      3
-                    </div>
-                    <h3 className="text-xl font-semibold">{t('howItWorks.steps.step3.title')}</h3>
+                      <h4 className="mb-2 font-medium">{t('howItWorks.steps.step1.cardTitle')}</h4>
+                      <p className="text-sm text-muted-foreground">
+                        {t('howItWorks.steps.step1.cardDescription')}
+                      </p>
+                    </motion.div>
                   </div>
-                  <p className="text-muted-foreground">{t('howItWorks.steps.step3.description')}</p>
-                </div>
+                </motion.div>
 
-                <div className="relative mt-6 md:mt-0 md:w-5/12">
-                  <div className="absolute -left-4 top-1/2 hidden h-4 w-4 -translate-y-1/2 rounded-full bg-purple-500 md:block"></div>
-                  <motion.div
-                    className="rounded-xl border bg-card p-6 shadow-md"
-                    whileHover={{ y: -5 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="mb-3 flex justify-between">
-                      <div className="rounded-md bg-purple-500/10 px-3 py-1 text-sm text-purple-500">
-                        {t('howItWorks.steps.step3.label')}
+                {/* Step 2: System generates job URL */}
+                <motion.div
+                  className="flex flex-col md:flex-row-reverse md:items-center md:justify-between"
+                  data-scroll-reveal
+                  variants={fadeIn}
+                >
+                  <div className="md:w-5/12">
+                    <div className="mb-4 flex items-center gap-3">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-500 text-white">
+                        2
                       </div>
-                      <GraduationCap className="text-purple-500" size={20} />
+                      <h3 className="text-xl font-semibold">{t('howItWorks.steps.step2.title')}</h3>
                     </div>
-                    <h4 className="mb-2 font-medium">{t('howItWorks.steps.step3.cardTitle')}</h4>
-                    <p className="text-sm text-muted-foreground">
-                      {t('howItWorks.steps.step3.cardDescription')}
+                    <p className="text-muted-foreground">
+                      {t('howItWorks.steps.step2.description')}
                     </p>
-                  </motion.div>
-                </div>
-              </motion.div>
-
-              {/* Step 4: AI analyzes resume */}
-              <motion.div
-                className="flex flex-col md:flex-row-reverse md:items-center md:justify-between"
-                variants={fadeIn}
-              >
-                <div className="md:w-5/12">
-                  <div className="mb-4 flex items-center gap-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-pink-500 text-white">
-                      4
-                    </div>
-                    <h3 className="text-xl font-semibold">{t('howItWorks.steps.step4.title')}</h3>
                   </div>
-                  <p className="text-muted-foreground">{t('howItWorks.steps.step4.description')}</p>
-                </div>
 
-                <div className="relative mt-6 md:mt-0 md:w-5/12">
-                  <div className="absolute -right-4 top-1/2 hidden h-4 w-4 -translate-y-1/2 rounded-full bg-pink-500 md:block"></div>
-                  <motion.div
-                    className="rounded-xl border bg-card p-6 shadow-md"
-                    whileHover={{ y: -5 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="mb-3 flex justify-between">
-                      <div className="rounded-md bg-pink-500/10 px-3 py-1 text-sm text-pink-500">
-                        {t('howItWorks.steps.step4.label')}
+                  <div className="relative mt-6 md:mt-0 md:w-5/12">
+                    <div className="absolute -right-4 top-1/2 hidden h-4 w-4 -translate-y-1/2 rounded-full bg-indigo-500 md:block"></div>
+                    <motion.div
+                      className="rounded-xl border bg-card p-6 shadow-md"
+                      whileHover={{ y: -5 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="mb-3 flex justify-between">
+                        <div className="rounded-md bg-indigo-500/10 px-3 py-1 text-sm text-indigo-500">
+                          {t('howItWorks.steps.step2.label')}
+                        </div>
+                        <LinkIcon className="text-indigo-500" size={20} />
                       </div>
-                      <Upload className="text-pink-500" size={20} />
-                    </div>
-                    <h4 className="mb-2 font-medium">{t('howItWorks.steps.step4.cardTitle')}</h4>
-                    <p className="text-sm text-muted-foreground">
-                      {t('howItWorks.steps.step4.cardDescription')}
-                    </p>
-                  </motion.div>
-                </div>
-              </motion.div>
-
-              {/* Step 5: AI conducts interview */}
-              <motion.div
-                className="flex flex-col md:flex-row md:items-center md:justify-between"
-                variants={fadeIn}
-              >
-                <div className="md:w-5/12">
-                  <div className="mb-4 flex items-center gap-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-white">
-                      5
-                    </div>
-                    <h3 className="text-xl font-semibold">{t('howItWorks.steps.step5.title')}</h3>
+                      <h4 className="mb-2 font-medium">{t('howItWorks.steps.step2.cardTitle')}</h4>
+                      <p className="text-sm text-muted-foreground">
+                        {t('howItWorks.steps.step2.cardDescription')}
+                      </p>
+                    </motion.div>
                   </div>
-                  <p className="text-muted-foreground">{t('howItWorks.steps.step5.description')}</p>
-                </div>
+                </motion.div>
 
-                <div className="relative mt-6 md:mt-0 md:w-5/12">
-                  <div className="absolute -left-4 top-1/2 hidden h-4 w-4 -translate-y-1/2 rounded-full bg-blue-600 md:block"></div>
-                  <motion.div
-                    className="rounded-xl border bg-card p-6 shadow-md"
-                    whileHover={{ y: -5 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="mb-3 flex justify-between">
-                      <div className="rounded-md bg-blue-600/10 px-3 py-1 text-sm text-blue-600">
-                        {t('howItWorks.steps.step5.label')}
+                {/* Step 3: Candidate applies via URL */}
+                <motion.div
+                  className="flex flex-col md:flex-row md:items-center md:justify-between"
+                  data-scroll-reveal
+                  variants={fadeIn}
+                >
+                  <div className="md:w-5/12">
+                    <div className="mb-4 flex items-center gap-3">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-purple-500 text-white">
+                        3
                       </div>
-                      <MessageSquareText className="text-blue-600" size={20} />
+                      <h3 className="text-xl font-semibold">{t('howItWorks.steps.step3.title')}</h3>
                     </div>
-                    <h4 className="mb-2 font-medium">{t('howItWorks.steps.step5.cardTitle')}</h4>
-                    <p className="text-sm text-muted-foreground">
-                      {t('howItWorks.steps.step5.cardDescription')}
+                    <p className="text-muted-foreground">
+                      {t('howItWorks.steps.step3.description')}
                     </p>
-                  </motion.div>
-                </div>
-              </motion.div>
-
-              {/* Step 6: System provides feedback */}
-              <motion.div
-                className="flex flex-col md:flex-row-reverse md:items-center md:justify-between"
-                variants={fadeIn}
-              >
-                <div className="md:w-5/12">
-                  <div className="mb-4 flex items-center gap-3">
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-500 text-white">
-                      6
-                    </div>
-                    <h3 className="text-xl font-semibold">{t('howItWorks.steps.step6.title')}</h3>
                   </div>
-                  <p className="text-muted-foreground">{t('howItWorks.steps.step6.description')}</p>
-                </div>
 
-                <div className="relative mt-6 md:mt-0 md:w-5/12">
-                  <div className="absolute -right-4 top-1/2 hidden h-4 w-4 -translate-y-1/2 rounded-full bg-green-500 md:block"></div>
-                  <motion.div
-                    className="rounded-xl border bg-card p-6 shadow-md"
-                    whileHover={{ y: -5 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <div className="mb-3 flex justify-between">
-                      <div className="rounded-md bg-green-500/10 px-3 py-1 text-sm text-green-500">
-                        {t('howItWorks.steps.step6.label')}
+                  <div className="relative mt-6 md:mt-0 md:w-5/12">
+                    <div className="absolute -left-4 top-1/2 hidden h-4 w-4 -translate-y-1/2 rounded-full bg-purple-500 md:block"></div>
+                    <motion.div
+                      className="rounded-xl border bg-card p-6 shadow-md"
+                      whileHover={{ y: -5 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="mb-3 flex justify-between">
+                        <div className="rounded-md bg-purple-500/10 px-3 py-1 text-sm text-purple-500">
+                          {t('howItWorks.steps.step3.label')}
+                        </div>
+                        <GraduationCap className="text-purple-500" size={20} />
                       </div>
-                      <ClipboardCheck className="text-green-500" size={20} />
+                      <h4 className="mb-2 font-medium">{t('howItWorks.steps.step3.cardTitle')}</h4>
+                      <p className="text-sm text-muted-foreground">
+                        {t('howItWorks.steps.step3.cardDescription')}
+                      </p>
+                    </motion.div>
+                  </div>
+                </motion.div>
+
+                {/* Step 4: AI analyzes resume */}
+                <motion.div
+                  className="flex flex-col md:flex-row-reverse md:items-center md:justify-between"
+                  data-scroll-reveal
+                  variants={fadeIn}
+                >
+                  <div className="md:w-5/12">
+                    <div className="mb-4 flex items-center gap-3">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-pink-500 text-white">
+                        4
+                      </div>
+                      <h3 className="text-xl font-semibold">{t('howItWorks.steps.step4.title')}</h3>
                     </div>
-                    <h4 className="mb-2 font-medium">{t('howItWorks.steps.step6.cardTitle')}</h4>
-                    <p className="text-sm text-muted-foreground">
-                      {t('howItWorks.steps.step6.cardDescription')}
+                    <p className="text-muted-foreground">
+                      {t('howItWorks.steps.step4.description')}
                     </p>
-                  </motion.div>
-                </div>
-              </motion.div>
-            </motion.div>
+                  </div>
+
+                  <div className="relative mt-6 md:mt-0 md:w-5/12">
+                    <div className="absolute -right-4 top-1/2 hidden h-4 w-4 -translate-y-1/2 rounded-full bg-pink-500 md:block"></div>
+                    <motion.div
+                      className="rounded-xl border bg-card p-6 shadow-md"
+                      whileHover={{ y: -5 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="mb-3 flex justify-between">
+                        <div className="rounded-md bg-pink-500/10 px-3 py-1 text-sm text-pink-500">
+                          {t('howItWorks.steps.step4.label')}
+                        </div>
+                        <Upload className="text-pink-500" size={20} />
+                      </div>
+                      <h4 className="mb-2 font-medium">{t('howItWorks.steps.step4.cardTitle')}</h4>
+                      <p className="text-sm text-muted-foreground">
+                        {t('howItWorks.steps.step4.cardDescription')}
+                      </p>
+                    </motion.div>
+                  </div>
+                </motion.div>
+
+                {/* Step 5: AI conducts interview */}
+                <motion.div
+                  className="flex flex-col md:flex-row md:items-center md:justify-between"
+                  data-scroll-reveal
+                  variants={fadeIn}
+                >
+                  <div className="md:w-5/12">
+                    <div className="mb-4 flex items-center gap-3">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-600 text-white">
+                        5
+                      </div>
+                      <h3 className="text-xl font-semibold">{t('howItWorks.steps.step5.title')}</h3>
+                    </div>
+                    <p className="text-muted-foreground">
+                      {t('howItWorks.steps.step5.description')}
+                    </p>
+                  </div>
+
+                  <div className="relative mt-6 md:mt-0 md:w-5/12">
+                    <div className="absolute -left-4 top-1/2 hidden h-4 w-4 -translate-y-1/2 rounded-full bg-blue-600 md:block"></div>
+                    <motion.div
+                      className="rounded-xl border bg-card p-6 shadow-md"
+                      whileHover={{ y: -5 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="mb-3 flex justify-between">
+                        <div className="rounded-md bg-blue-600/10 px-3 py-1 text-sm text-blue-600">
+                          {t('howItWorks.steps.step5.label')}
+                        </div>
+                        <MessageSquareText className="text-blue-600" size={20} />
+                      </div>
+                      <h4 className="mb-2 font-medium">{t('howItWorks.steps.step5.cardTitle')}</h4>
+                      <p className="text-sm text-muted-foreground">
+                        {t('howItWorks.steps.step5.cardDescription')}
+                      </p>
+                    </motion.div>
+                  </div>
+                </motion.div>
+
+                {/* Step 6: System provides feedback */}
+                <motion.div
+                  className="flex flex-col md:flex-row-reverse md:items-center md:justify-between"
+                  data-scroll-reveal
+                  variants={fadeIn}
+                >
+                  <div className="md:w-5/12">
+                    <div className="mb-4 flex items-center gap-3">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-green-500 text-white">
+                        6
+                      </div>
+                      <h3 className="text-xl font-semibold">{t('howItWorks.steps.step6.title')}</h3>
+                    </div>
+                    <p className="text-muted-foreground">
+                      {t('howItWorks.steps.step6.description')}
+                    </p>
+                  </div>
+
+                  <div className="relative mt-6 md:mt-0 md:w-5/12">
+                    <div className="absolute -right-4 top-1/2 hidden h-4 w-4 -translate-y-1/2 rounded-full bg-green-500 md:block"></div>
+                    <motion.div
+                      className="rounded-xl border bg-card p-6 shadow-md"
+                      whileHover={{ y: -5 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      <div className="mb-3 flex justify-between">
+                        <div className="rounded-md bg-green-500/10 px-3 py-1 text-sm text-green-500">
+                          {t('howItWorks.steps.step6.label')}
+                        </div>
+                        <ClipboardCheck className="text-green-500" size={20} />
+                      </div>
+                      <h4 className="mb-2 font-medium">{t('howItWorks.steps.step6.cardTitle')}</h4>
+                      <p className="text-sm text-muted-foreground">
+                        {t('howItWorks.steps.step6.cardDescription')}
+                      </p>
+                    </motion.div>
+                  </div>
+                </motion.div>
+              </div>
+            </ScrollReveal>
           </div>
 
           <motion.div
@@ -671,72 +681,67 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <motion.div
-            className="grid gap-8 md:grid-cols-3"
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.1 }}
-            variants={staggerContainer}
-          >
-            {[
-              {
-                quote:
-                  'HireBlue has revolutionized our recruitment process. We&apos;ve reduced our time-to-hire by 40% and found better quality candidates.',
-                name: 'Sarah Johnson',
-                role: 'HR Director',
-                company: 'TechCorp',
-                color: 'blue',
-              },
-              {
-                quote:
-                  'The AI interview process is remarkably effective. It asks relevant questions and provides detailed feedback that helps us make better hiring decisions.',
-                name: 'David Rodriguez',
-                role: 'Talent Acquisition Manager',
-                company: 'InnovateX',
-                color: 'purple',
-              },
-              {
-                quote:
-                  'As a candidate, I love how the platform matched me with jobs that truly aligned with my skills and career goals. The AI interview was surprisingly conversational.',
-                name: 'Michael Chen',
-                role: 'Software Engineer',
-                company: 'Hired via HireBlue',
-                color: 'green',
-              },
-            ].map((testimonial, index) => (
-              <motion.div
-                key={index}
-                className={`relative overflow-hidden rounded-xl border bg-card p-8 shadow-md`}
-                variants={featureCardVariants}
-                whileHover="hover"
-              >
+          <ScrollReveal stagger={0.15} yAmount={60}>
+            <div className="grid gap-8 md:grid-cols-3">
+              {[
+                {
+                  quote:
+                    'HireBlue has revolutionized our recruitment process. We&apos;ve reduced our time-to-hire by 40% and found better quality candidates.',
+                  name: 'Sarah Johnson',
+                  role: 'HR Director',
+                  company: 'TechCorp',
+                  color: 'blue',
+                },
+                {
+                  quote:
+                    'The AI interview process is remarkably effective. It asks relevant questions and provides detailed feedback that helps us make better hiring decisions.',
+                  name: 'David Rodriguez',
+                  role: 'Talent Acquisition Manager',
+                  company: 'InnovateX',
+                  color: 'purple',
+                },
+                {
+                  quote:
+                    'As a candidate, I love how the platform matched me with jobs that truly aligned with my skills and career goals. The AI interview was surprisingly conversational.',
+                  name: 'Michael Chen',
+                  role: 'Software Engineer',
+                  company: 'Hired via HireBlue',
+                  color: 'green',
+                },
+              ].map((testimonial, index) => (
                 <div
-                  className={`absolute top-0 left-0 h-1 w-full bg-${testimonial.color}-500`}
-                ></div>
-                <div
-                  className={`absolute top-0 right-0 h-20 w-20 -translate-y-10 translate-x-10 rounded-full bg-${testimonial.color}-500/10 blur-3xl`}
-                ></div>
-
-                <div className="mb-6 text-xl italic text-muted-foreground">
-                  &ldquo;{testimonial.quote}&rdquo;
-                </div>
-
-                <div className="flex items-center gap-4">
+                  key={index}
+                  data-scroll-reveal
+                  className={`relative overflow-hidden rounded-xl border bg-card p-8 shadow-md hover:shadow-lg transition-all hover:y-[-5px]`}
+                >
                   <div
-                    className={`flex h-12 w-12 items-center justify-center rounded-full bg-${testimonial.color}-500/10 text-${testimonial.color}-500`}
-                  >
-                    {testimonial.name.charAt(0)}
+                    className={`absolute top-0 left-0 h-1 w-full bg-${testimonial.color}-500`}
+                  ></div>
+                  <div
+                    className={`absolute top-0 right-0 h-20 w-20 -translate-y-10 translate-x-10 rounded-full bg-${testimonial.color}-500/10 blur-3xl`}
+                  ></div>
+
+                  <div className="mb-6 text-xl italic text-muted-foreground">
+                    &ldquo;{testimonial.quote}&rdquo;
                   </div>
-                  <div>
-                    <p className="font-semibold">{testimonial.name}</p>
-                    <p className="text-sm text-muted-foreground">
-                      {testimonial.role}, {testimonial.company}
-                    </p>
+
+                  <div className="flex items-center gap-4">
+                    <div
+                      className={`flex h-12 w-12 items-center justify-center rounded-full bg-${testimonial.color}-500/10 text-${testimonial.color}-500`}
+                    >
+                      {testimonial.name.charAt(0)}
+                    </div>
+                    <div>
+                      <p className="font-semibold">{testimonial.name}</p>
+                      <p className="text-sm text-muted-foreground">
+                        {testimonial.role}, {testimonial.company}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </motion.div>
-            ))}
-          </motion.div>
+              ))}
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 
