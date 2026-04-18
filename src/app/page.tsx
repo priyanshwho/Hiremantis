@@ -18,6 +18,7 @@ import {
   Users,
   Zap,
 } from 'lucide-react';
+import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import { TypeAnimation } from 'react-type-animation';
@@ -28,7 +29,11 @@ import { ScrollReveal } from '@/components/scroll-reveal';
 import { AnimatedBackground } from '@/components/ui/animated-background';
 import { Button } from '@/components/ui/button';
 import { Footer } from '@/components/ui/footer';
-import { VideoBackground } from '@/components/video-background';
+
+const VideoBackground = dynamic(
+  () => import('@/components/video-background').then((module) => module.VideoBackground),
+  { ssr: false }
+);
 
 // Animation variants
 const fadeIn = {
@@ -50,7 +55,7 @@ const staggerContainer = {
   },
 };
 
-const featureCardVariants = {
+const _featureCardVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,

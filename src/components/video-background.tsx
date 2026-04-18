@@ -44,6 +44,9 @@ export function VideoBackground({
     const video = videoRef.current;
     if (!video) return;
 
+    let hlsInstance: { destroy(): void } | null = null;
+    let isDisposed = false;
+
     const initializeVideo = async () => {
       try {
         // Try native HLS support first (Safari/iOS)
@@ -60,7 +63,9 @@ export function VideoBackground({
           const script = document.createElement('script');
           script.src = 'https://cdn.jsdelivr.net/npm/hls.js@latest';
           script.async = true;
-          script.onload = () => setupHls();
+          script.onload = () => {
+            if (!isDisposed) setupHls();
+          };
           script.onerror = () => console.error('Failed to load HLS.js');
           document.head.appendChild(script);
         } else {
@@ -69,21 +74,22 @@ export function VideoBackground({
 
         function setupHls() {
           if (window.Hls && window.Hls.isSupported()) {
-            const hls = new window.Hls({
+            hlsInstance = new window.Hls({
               debug: false,
               enableWorker: true,
               lowLatencyMode: false,
             });
 
-            hls.loadSource(src);
-            hls.attachMedia(video);
+            hlsInstance.loadSource(src);
+            hlsInstance.attachMedia(video);
 
-            hls.on('hlsManifestParsed', () => {
+            hlsInstance.on('hlsManifestParsed', () => {
+              if (isDisposed) return;
               console.log('HLS manifest parsed, starting playback');
               video.play().catch((err) => console.log('Play error:', err));
             });
 
-            hls.on('hlsError', (_event: HlsEvent, data: HlsErrorData) => {
+            hlsInstance.on('hlsError', (_event: HlsEvent, data: HlsErrorData) => {
               console.error('HLS error:', data);
             });
           } else if (video.canPlayType('video/mp4')) {
@@ -100,8 +106,11 @@ export function VideoBackground({
     initializeVideo();
 
     return () => {
-      // Cleanup if needed
+      isDisposed = true;
+      hlsInstance?.destroy();
       video.pause();
+      video.removeAttribute('src');
+      video.load();
     };
   }, [src]);
 
@@ -109,6 +118,7 @@ export function VideoBackground({
     <>
       <video
         ref={videoRef}
+        autoPlay
         loop
         muted
         playsInline
