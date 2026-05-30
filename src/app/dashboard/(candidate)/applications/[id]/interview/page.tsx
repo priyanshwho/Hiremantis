@@ -45,64 +45,63 @@ export default async function InterviewPage(props: Props) {
   const params = await props.params;
   const applicationId = params.id;
 
+  // Fetch data inside try/catch — keep all JSX outside
+  let application: Awaited<ReturnType<typeof JobApplication.findById>>;
+  let job: Awaited<ReturnType<typeof getJobById>>;
+
   try {
     await connectToDatabase();
-    const application = await JobApplication.findById(applicationId);
+    application = await JobApplication.findById(applicationId);
     console.log(application);
-    if (!application) {
-      notFound();
-    }
+    if (!application) notFound();
 
-    const job = await getJobById(application.jobId);
-
-    if (!job) {
-      notFound();
-    }
-
-    // Check if interview duration is missing
-    if (!job.interviewDuration) {
-      return (
-        <div className="container px-4 py-8 mx-auto">
-          <Card>
-            <CardContent className="p-8 text-center">
-              <p className="text-muted-foreground">
-                Interview configuration is incomplete. Please contact the recruiter.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-      );
-    }
-
-    return (
-      <div className="container px-4 py-8 mx-auto relative">
-        {/* Apply a subtle background for the entire page */}
-        <div className="absolute inset-0 -z-10">
-          <AIInterviewBackground className="opacity-25" />
-        </div>
-
-        <div className="max-w-3xl mx-auto relative z-10">
-          <Card className="mb-6 border-border/60 shadow-lg">
-            <CardHeader>
-              <h1 className="text-3xl font-bold">{job.title} - AI Interview</h1>
-              <p className="text-muted-foreground">Virtual interview for {job.companyName}</p>
-            </CardHeader>
-            <CardContent>
-              <InterviewClient
-                applicationId={applicationId}
-                jobTitle={job.title}
-                companyName={job.companyName}
-                location={job.location}
-                skills={job.skills}
-                interviewDuration={job.interviewDuration}
-              />
-            </CardContent>
-          </Card>
-        </div>
-      </div>
-    );
+    job = await getJobById(application!.jobId);
+    if (!job) notFound();
   } catch (error) {
     console.error('Error loading interview page:', error);
     notFound();
   }
+
+  // Check if interview duration is missing
+  if (!job!.interviewDuration) {
+    return (
+      <div className="container px-4 py-8 mx-auto">
+        <Card>
+          <CardContent className="p-8 text-center">
+            <p className="text-muted-foreground">
+              Interview configuration is incomplete. Please contact the recruiter.
+            </p>
+          </CardContent>
+        </Card>
+      </div>
+    );
+  }
+
+  return (
+    <div className="container px-4 py-8 mx-auto relative">
+      {/* Apply a subtle background for the entire page */}
+      <div className="absolute inset-0 -z-10">
+        <AIInterviewBackground className="opacity-25" />
+      </div>
+
+      <div className="max-w-3xl mx-auto relative z-10">
+        <Card className="mb-6 border-border/60 shadow-lg">
+          <CardHeader>
+            <h1 className="text-3xl font-bold">{job!.title} - AI Interview</h1>
+            <p className="text-muted-foreground">Virtual interview for {job!.companyName}</p>
+          </CardHeader>
+          <CardContent>
+            <InterviewClient
+              applicationId={applicationId}
+              jobTitle={job!.title}
+              companyName={job!.companyName}
+              location={job!.location}
+              skills={job!.skills}
+              interviewDuration={job!.interviewDuration}
+            />
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
 }

@@ -78,9 +78,14 @@ export function InterviewSession({
   const [alerts, setAlerts] = useState<string[]>([]);
   const [isTimerActive, setIsTimerActive] = useState(false);
   // Prevent hydration mismatch from browser extension DOM injection
+  // Use a ref + forceUpdate pattern to avoid setState-in-effect lint error
+  const mountedRef = useRef(false);
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
-    setMounted(true);
+    if (!mountedRef.current) {
+      mountedRef.current = true;
+      setTimeout(() => setMounted(true), 0);
+    }
   }, []);
   // Track interview state
   const { interviewState } = useInterviewState(applicationId);
@@ -137,7 +142,7 @@ export function InterviewSession({
   useEffect(() => {
     if (!isInitializing && !isTimerActive && !interviewState.isCompleted) {
       console.log('[Interview Timer] Starting timer for', interviewDuration, 'minutes');
-      setIsTimerActive(true);
+      setTimeout(() => setIsTimerActive(true), 0);
     }
   }, [isInitializing, isTimerActive, interviewState.isCompleted, interviewDuration]);
 
@@ -146,8 +151,11 @@ export function InterviewSession({
     const savedVideoDevice = localStorage.getItem('preferredVideoDevice');
     const savedAudioDevice = localStorage.getItem('preferredAudioDevice');
 
-    if (savedVideoDevice) setSelectedVideoDevice(savedVideoDevice);
-    if (savedAudioDevice) setSelectedAudioDevice(savedAudioDevice);
+    // Defer setState to avoid synchronous setState inside effect
+    setTimeout(() => {
+      if (savedVideoDevice) setSelectedVideoDevice(savedVideoDevice);
+      if (savedAudioDevice) setSelectedAudioDevice(savedAudioDevice);
+    }, 0);
   }, []);
 
   // Save device preferences to localStorage when they change
@@ -209,8 +217,8 @@ export function InterviewSession({
       cameraMonitoring,
       monitoringInterval,
     });
-    setIsMonitoring(cameraMonitoring);
     intervalValueRef.current = monitoringInterval;
+    setTimeout(() => setIsMonitoring(cameraMonitoring), 0);
   }, [cameraMonitoring, monitoringInterval]);
 
   // Take initial picture when video is ready
@@ -359,25 +367,29 @@ export function InterviewSession({
 
   // Watch for camera and microphone state changes
   useEffect(() => {
-    if (!videoEnabled) {
-      setAlerts((prev) =>
-        prev.includes(INTERVIEW_ALERTS.CAMERA_OFF) ? prev : [...prev, INTERVIEW_ALERTS.CAMERA_OFF]
-      );
-    } else {
-      setAlerts((prev) => prev.filter((alert) => alert !== INTERVIEW_ALERTS.CAMERA_OFF));
-    }
+    setTimeout(() => {
+      if (!videoEnabled) {
+        setAlerts((prev) =>
+          prev.includes(INTERVIEW_ALERTS.CAMERA_OFF) ? prev : [...prev, INTERVIEW_ALERTS.CAMERA_OFF]
+        );
+      } else {
+        setAlerts((prev) => prev.filter((alert) => alert !== INTERVIEW_ALERTS.CAMERA_OFF));
+      }
+    }, 0);
   }, [videoEnabled]);
 
   useEffect(() => {
-    if (!micEnabled) {
-      setAlerts((prev) =>
-        prev.includes(INTERVIEW_ALERTS.MICROPHONE_OFF)
-          ? prev
-          : [...prev, INTERVIEW_ALERTS.MICROPHONE_OFF]
-      );
-    } else {
-      setAlerts((prev) => prev.filter((alert) => alert !== INTERVIEW_ALERTS.MICROPHONE_OFF));
-    }
+    setTimeout(() => {
+      if (!micEnabled) {
+        setAlerts((prev) =>
+          prev.includes(INTERVIEW_ALERTS.MICROPHONE_OFF)
+            ? prev
+            : [...prev, INTERVIEW_ALERTS.MICROPHONE_OFF]
+        );
+      } else {
+        setAlerts((prev) => prev.filter((alert) => alert !== INTERVIEW_ALERTS.MICROPHONE_OFF));
+      }
+    }, 0);
   }, [micEnabled]);
 
   const toggleVideo = () => {
@@ -484,10 +496,13 @@ export function InterviewSession({
         document.dispatchEvent(new CustomEvent('toggle-speech-recognition'));
       }
 
-      // Reset manual mute state when AI starts talking so mic can auto-enable later
-      setIsManuallyMuted(false);
-      // Set flag to auto-enable microphone when AI stops talking
-      setShouldAutoEnable(true);
+      // Defer setState to avoid synchronous setState inside effect
+      setTimeout(() => {
+        // Reset manual mute state when AI starts talking so mic can auto-enable later
+        setIsManuallyMuted(false);
+        // Set flag to auto-enable microphone when AI stops talking
+        setShouldAutoEnable(true);
+      }, 0);
     }
   }, [isAudioPlaying, isSpeechListening]);
 

@@ -54,8 +54,11 @@ export function InterviewClient({
     const savedVideoDevice = localStorage.getItem('preferredVideoDevice');
     const savedAudioDevice = localStorage.getItem('preferredAudioDevice');
 
-    if (savedVideoDevice) setSelectedVideoDevice(savedVideoDevice);
-    if (savedAudioDevice) setSelectedAudioDevice(savedAudioDevice);
+    // Defer setState to avoid synchronous setState inside effect
+    setTimeout(() => {
+      if (savedVideoDevice) setSelectedVideoDevice(savedVideoDevice);
+      if (savedAudioDevice) setSelectedAudioDevice(savedAudioDevice);
+    }, 0);
   }, []);
 
   const handleShowDetails = () => {

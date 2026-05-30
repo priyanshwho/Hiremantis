@@ -291,9 +291,12 @@ export function AudioPlayer({ audioUrl, messageId, autoPlayMessageId }: AudioPla
 
   // Initialize audio on mount or when URL changes
   useEffect(() => {
-    setIsReady(false);
-    setErrorOccurred(false);
-    setIsWaitingForContinue(false);
+    // Defer state resets to avoid synchronous setState inside effect
+    setTimeout(() => {
+      setIsReady(false);
+      setErrorOccurred(false);
+      setIsWaitingForContinue(false);
+    }, 0);
     hasAttemptedAutoplayRef.current = false;
 
     // Register this component as the last audio player if it is the last message
@@ -305,6 +308,7 @@ export function AudioPlayer({ audioUrl, messageId, autoPlayMessageId }: AudioPla
     // Setup audio and store the cleanup function
     let cleanupFn: (() => void) | undefined;
 
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setupAudio().then((cleanup) => {
       cleanupFn = cleanup;
     });

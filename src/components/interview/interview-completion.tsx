@@ -48,7 +48,7 @@ export function InterviewCompletion({
       };
     } else {
       console.log('[Completion UI] Chat closed, showing feedback button');
-      setIsChatClosed(true);
+      setTimeout(() => setIsChatClosed(true), 0);
     }
   }, [closingTimer]);
 

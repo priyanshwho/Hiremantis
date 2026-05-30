@@ -1,21 +1,14 @@
-import { GetObjectCommand, S3Client } from '@aws-sdk/client-s3';
+import { GetObjectCommand } from '@aws-sdk/client-s3';
 import { getSignedUrl } from '@aws-sdk/s3-request-presigner';
 import { NextRequest, NextResponse } from 'next/server';
 
 import { auth } from '@/auth';
 import { connectToDatabase } from '@/lib/mongodb';
+import { createS3Client } from '@/lib/s3-client';
 import Job from '@/models/job';
 import { JobApplication } from '@/models/job-application';
 
-const s3Client = new S3Client({
-  endpoint: process.env.AWS_ENDPOINT_URL_S3,
-  region: process.env.AWS_REGION!,
-  forcePathStyle: true,
-  credentials: {
-    accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
-    secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
-  },
-});
+const s3Client = createS3Client();
 
 const bucketName = process.env.AWS_BUCKET_NAME || 'HireBlue';
 

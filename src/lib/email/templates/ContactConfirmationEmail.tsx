@@ -42,8 +42,8 @@ export const ContactConfirmationEmail = ({ name, message }: ContactConfirmationE
         <Text style={textLg}>Hi {name},</Text>
 
         <Text style={textBase}>
-          Thank you for reaching out to HireBlue! We have received your message and will get back
-          to you as soon as possible.
+          Thank you for reaching out to HireBlue! We have received your message and will get back to
+          you as soon as possible.
         </Text>
 
         <Section style={highlightedBox}>

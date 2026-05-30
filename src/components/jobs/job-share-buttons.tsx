@@ -23,6 +23,42 @@ interface JobShareButtonsProps {
   alertDialogMode?: boolean;
 }
 
+interface ShareContentProps {
+  shareUrl: string;
+  displayUrl: string;
+  shareTitle: string;
+  shareMessage: string;
+  fbAppId: string;
+  facebookQuote: string;
+}
+
+// Declared outside the render function to avoid react-hooks/static-components error
+function ShareContent({
+  shareUrl,
+  displayUrl,
+  shareTitle,
+  shareMessage,
+  fbAppId,
+  facebookQuote,
+}: ShareContentProps) {
+  return (
+    <div className="space-y-2">
+      <h4 className="font-medium text-sm">Share this job</h4>
+      <p className="text-xs text-muted-foreground">Help others find this opportunity</p>
+      <ShareButtons
+        url={shareUrl}
+        displayUrl={displayUrl}
+        title={shareTitle}
+        message={shareMessage}
+        appId={fbAppId}
+        facebookQuote={facebookQuote}
+        facebookHashtag="#jobopportunity"
+        iconSize={28}
+      />
+    </div>
+  );
+}
+
 export function JobShareButtons({
   jobId,
   jobTitle,
@@ -49,23 +85,14 @@ export function JobShareButtons({
   // Get Facebook app ID from environment variable
   const fbAppId = process.env.NEXT_PUBLIC_FACEBOOK_APP_ID || '';
 
-  // Share content component to be used in both Popover and AlertDialog
-  const ShareContent = () => (
-    <div className="space-y-2">
-      <h4 className="font-medium text-sm">Share this job</h4>
-      <p className="text-xs text-muted-foreground">Help others find this opportunity</p>
-      <ShareButtons
-        url={shareUrl}
-        displayUrl={displayUrl}
-        title={shareTitle}
-        message={shareMessage}
-        appId={fbAppId}
-        facebookQuote={`I found this great job opportunity: ${shareTitle}`}
-        facebookHashtag="#jobopportunity"
-        iconSize={28}
-      />
-    </div>
-  );
+  const shareContentProps: ShareContentProps = {
+    shareUrl,
+    displayUrl,
+    shareTitle,
+    shareMessage,
+    fbAppId,
+    facebookQuote: `I found this great job opportunity: ${shareTitle}`,
+  };
 
   if (alertDialogMode) {
     return (
@@ -84,7 +111,7 @@ export function JobShareButtons({
               </AlertDialogDescription>
             </AlertDialogHeader>
             <div className="py-4">
-              <ShareContent />
+              <ShareContent {...shareContentProps} />
             </div>
             <AlertDialogFooter>
               <Button variant="outline" onClick={() => setIsAlertOpen(false)}>
@@ -107,7 +134,7 @@ export function JobShareButtons({
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-72 p-4">
-        <ShareContent />
+        <ShareContent {...shareContentProps} />
       </PopoverContent>
     </Popover>
   );

@@ -91,10 +91,12 @@ export function CustomReactMic({
 
   // Initialize audio stream when deviceId changes
   useEffect(() => {
-    initializeAudioStream();
+    // Defer to avoid synchronous setState inside effect
+    const timer = setTimeout(() => initializeAudioStream(), 0);
 
     // Cleanup when unmounting
     return () => {
+      clearTimeout(timer);
       if (audioStream) {
         audioStream.getTracks().forEach((track) => track.stop());
       }

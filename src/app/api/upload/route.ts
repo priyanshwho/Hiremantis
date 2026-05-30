@@ -1,26 +1,12 @@
-import { PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
+import { PutObjectCommand } from '@aws-sdk/client-s3';
 import { NextRequest, NextResponse } from 'next/server';
 
 import { auth } from '@/auth';
+import { createS3Client } from '@/lib/s3-client';
 
 // Create S3 client for server-side operations (only if credentials are available)
-const createS3Client = () => {
-  if (!process.env.AWS_ACCESS_KEY_ID || !process.env.AWS_SECRET_ACCESS_KEY) {
-    return null;
-  }
-
-  return new S3Client({
-    region: process.env.AWS_REGION!,
-    endpoint: process.env.AWS_ENDPOINT_URL_S3,
-    forcePathStyle: true,
-    credentials: {
-      accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-    },
-  });
-};
-
-const s3Client = createS3Client();
+const s3Client =
+  process.env.AWS_ACCESS_KEY_ID && process.env.AWS_SECRET_ACCESS_KEY ? createS3Client() : null;
 
 export async function POST(req: NextRequest) {
   try {

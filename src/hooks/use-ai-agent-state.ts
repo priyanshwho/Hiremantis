@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useMemo } from 'react';
 
 import { useAudioPlaybackState } from './use-audio-playback-state';
 
@@ -13,20 +13,16 @@ interface AIAgentStateHook {
 }
 
 /**
- * Hook to manage AI agent visual states for enhanced UI feedback
+ * Hook to manage AI agent visual states for enhanced UI feedback.
+ * Uses useMemo instead of useEffect + setState to avoid cascading renders.
  */
 export function useAIAgentState(isLoading: boolean): AIAgentStateHook {
   const { isAudioPlaying } = useAudioPlaybackState();
-  const [agentState, setAgentState] = useState<AIAgentState>('idle');
 
-  useEffect(() => {
-    if (isAudioPlaying) {
-      setAgentState('speaking');
-    } else if (isLoading) {
-      setAgentState('thinking');
-    } else {
-      setAgentState('idle');
-    }
+  const agentState = useMemo<AIAgentState>(() => {
+    if (isAudioPlaying) return 'speaking';
+    if (isLoading) return 'thinking';
+    return 'idle';
   }, [isLoading, isAudioPlaying]);
 
   return {

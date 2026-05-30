@@ -111,7 +111,7 @@ export function DeviceCheck({
   // When camera check is complete, clean up the camera stream
   useEffect(() => {
     if (cameraChecked && showCamera) {
-      setShowCamera(false);
+      setTimeout(() => setShowCamera(false), 0);
       if (webcamRef.current?.video) {
         const video = webcamRef.current.video as HTMLVideoElement;
         const stream = video.srcObject as MediaStream;

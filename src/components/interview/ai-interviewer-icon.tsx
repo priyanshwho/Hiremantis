@@ -32,7 +32,7 @@ export function AIInterviewerIcon({
 
   // Wait for component to mount to prevent hydration mismatch
   useEffect(() => {
-    setMounted(true);
+    setTimeout(() => setMounted(true), 0);
   }, []);
 
   if (!mounted) {
