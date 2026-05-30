@@ -19,6 +19,13 @@ interface HlsErrorData {
   fatal: boolean;
 }
 
+interface HlsPlayer {
+  loadSource(url: string): void;
+  attachMedia(video: HTMLVideoElement): void;
+  on(event: string, callback: (event: HlsEvent, data?: HlsErrorData) => void): void;
+  destroy(): void;
+}
+
 declare global {
   interface Window {
     Hls: {
@@ -43,16 +50,17 @@ export function VideoBackground({
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+    const videoEl = video;
 
-    let hlsInstance: { destroy(): void } | null = null;
+    let hlsInstance: HlsPlayer | null = null;
     let isDisposed = false;
 
     const initializeVideo = async () => {
       try {
         // Try native HLS support first (Safari/iOS)
-        if (video.canPlayType('application/vnd.apple.mpegurl')) {
-          video.src = src;
-          video.play().catch((err) => console.log('Play error:', err));
+        if (videoEl.canPlayType('application/vnd.apple.mpegurl')) {
+          videoEl.src = src;
+          videoEl.play().catch((err) => console.log('Play error:', err));
           return;
         }
 
@@ -81,21 +89,21 @@ export function VideoBackground({
             });
 
             hlsInstance.loadSource(src);
-            hlsInstance.attachMedia(video);
+            hlsInstance.attachMedia(videoEl);
 
             hlsInstance.on('hlsManifestParsed', () => {
               if (isDisposed) return;
               console.log('HLS manifest parsed, starting playback');
-              video.play().catch((err) => console.log('Play error:', err));
+              videoEl.play().catch((err) => console.log('Play error:', err));
             });
 
-            hlsInstance.on('hlsError', (_event: HlsEvent, data: HlsErrorData) => {
+            hlsInstance.on('hlsError', (_event: HlsEvent, data?: HlsErrorData) => {
               console.error('HLS error:', data);
             });
-          } else if (video.canPlayType('video/mp4')) {
+          } else if (videoEl.canPlayType('video/mp4')) {
             // Fallback to direct video URL
-            video.src = src;
-            video.play().catch((err) => console.log('Play error:', err));
+            videoEl.src = src;
+            videoEl.play().catch((err) => console.log('Play error:', err));
           }
         }
       } catch (error) {
@@ -108,9 +116,9 @@ export function VideoBackground({
     return () => {
       isDisposed = true;
       hlsInstance?.destroy();
-      video.pause();
-      video.removeAttribute('src');
-      video.load();
+      videoEl.pause();
+      videoEl.removeAttribute('src');
+      videoEl.load();
     };
   }, [src]);
 
@@ -124,7 +132,7 @@ export function VideoBackground({
         playsInline
         className={`absolute inset-0 z-0 h-full w-full object-cover ${className}`}
       />
-      <div className={`absolute inset-0 z-1 ${overlayClassName}`}></div>
+      <div className={`absolute inset-0 z-[1] ${overlayClassName}`}></div>
     </>
   );
 }
