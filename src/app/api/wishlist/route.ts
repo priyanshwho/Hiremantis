@@ -13,9 +13,6 @@ const wishlistSchema = z.object({
   reason: z.string().optional(),
 });
 
-// Initialize Resend client
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
@@ -45,6 +42,7 @@ export async function POST(req: NextRequest) {
 
     // Send notification emails if Resend API key is configured
     if (process.env.RESEND_API_KEY) {
+      const resend = new Resend(process.env.RESEND_API_KEY);
       console.log('Sending notification emails...');
 
       // Import email rendering utilities

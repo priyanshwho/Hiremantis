@@ -27,15 +27,17 @@ export default async function InterviewFeedbackPage(props: Props) {
   const applicationId = params.id;
 
   // Fetch data inside try/catch — keep JSX outside
-  let application: Awaited<ReturnType<typeof JobApplication.findById>>;
-  let job: Awaited<ReturnType<typeof getJobById>>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let application: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let job: any;
 
   try {
     await connectToDatabase();
     application = await JobApplication.findById(applicationId);
     if (!application) notFound();
 
-    job = await getJobById(application.jobId);
+    job = await getJobById(application.jobId as string);
     if (!job) notFound();
   } catch (error) {
     console.error('Error loading interview feedback page:', error);

@@ -6,9 +6,6 @@ import { auth } from '@/auth';
 import { connectToDatabase } from '@/lib/mongodb';
 import { Contact } from '@/models/contact';
 
-// Initialize Resend client
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 // Define contact schema for validation
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -35,6 +32,7 @@ export async function POST(req: NextRequest) {
 
     // Send emails if Resend API key is configured
     if (process.env.RESEND_API_KEY) {
+      const resend = new Resend(process.env.RESEND_API_KEY);
       const submittedAt = new Date();
 
       // Import email rendering utilities

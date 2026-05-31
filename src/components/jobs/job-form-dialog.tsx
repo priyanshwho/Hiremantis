@@ -321,7 +321,9 @@ export function JobFormDialog({
                                           value={skill.value}
                                           onSelect={() => {
                                             const newValue = isSelected
-                                              ? field.value.filter((value) => value !== skill.value)
+                                              ? field.value.filter(
+                                                  (value: string) => value !== skill.value
+                                                )
                                               : [...field.value, skill.value];
                                             field.onChange(newValue);
                                           }}
@@ -349,8 +351,10 @@ export function JobFormDialog({
                       </Popover>
                       {field.value.length > 0 && (
                         <div className="flex flex-wrap gap-1 mt-2">
-                          {field.value.map((skill) => {
-                            const skillObj = technicalSkills.find((s) => s.value === skill);
+                          {field.value.map((skill: string) => {
+                            const skillObj = technicalSkills.find(
+                              (s: { value: string }) => s.value === skill
+                            );
                             return (
                               <Badge key={skill} variant="secondary" className="mr-1 mb-1">
                                 {skillObj?.label || skill}
@@ -358,7 +362,7 @@ export function JobFormDialog({
                                   type="button"
                                   className="ml-1 ring-offset-background rounded-full outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
                                   onClick={() => {
-                                    field.onChange(field.value.filter((s) => s !== skill));
+                                    field.onChange(field.value.filter((s: string) => s !== skill));
                                   }}
                                 >
                                   <XIcon className="h-3 w-3 text-muted-foreground hover:text-foreground" />

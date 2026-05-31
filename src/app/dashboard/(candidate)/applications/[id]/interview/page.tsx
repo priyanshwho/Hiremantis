@@ -46,8 +46,10 @@ export default async function InterviewPage(props: Props) {
   const applicationId = params.id;
 
   // Fetch data inside try/catch — keep all JSX outside
-  let application: Awaited<ReturnType<typeof JobApplication.findById>>;
-  let job: Awaited<ReturnType<typeof getJobById>>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let application: any;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  let job: any;
 
   try {
     await connectToDatabase();
@@ -55,7 +57,7 @@ export default async function InterviewPage(props: Props) {
     console.log(application);
     if (!application) notFound();
 
-    job = await getJobById(application!.jobId);
+    job = await getJobById(application!.jobId as string);
     if (!job) notFound();
   } catch (error) {
     console.error('Error loading interview page:', error);
