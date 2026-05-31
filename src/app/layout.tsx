@@ -22,8 +22,8 @@ export const metadata: Metadata = {
   description:
     'Our AI-driven platform transforms the recruitment process from job posting to candidate selection. Automate interviews, analyze resumes, and make data-driven hiring decisions.',
   icons: {
-    icon: [{ url: '/favicon.svg', type: 'image/svg+xml', sizes: 'any' }],
-    apple: '/images/favicon.svg',
+    icon: [{ url: '/images/hireblue_logo.png', type: 'image/png', sizes: 'any' }],
+    apple: '/images/hireblue_logo.png',
   },
   // manifest: "/manifest.json",
   // themeColor: "#0C4A6E",

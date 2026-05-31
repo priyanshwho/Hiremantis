@@ -8,9 +8,9 @@
   "theme_color": "#0C4A6E",
   "icons": [
     {
-      "src": "/images/favicon.svg",
+      "src": "/images/hireblue_logo.png",
       "sizes": "any",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any maskable"
     },
     {

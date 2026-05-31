@@ -291,11 +291,11 @@ export function AnimatedAuthCard({
           <CardHeader className={cn('space-y-1 relative z-10', headerClassName)}>
             <div className="flex flex-col items-center mb-6">
               <Image
-                src="/images/HireBlue-logo.svg"
+                src="/images/hireblue_logo.png"
                 alt="HireBlue"
                 width={64}
                 height={64}
-                className="h-16 w-16 mb-4 dark:invert-[0.15] dark:brightness-110"
+                className="h-16 w-16 mb-4"
               />
             </div>
             <CardTitle className="text-2xl font-bold">{title}</CardTitle>

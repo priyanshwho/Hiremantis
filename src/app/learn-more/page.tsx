@@ -119,7 +119,7 @@ export default function LearnMorePage() {
             <Image
               height={200}
               width={650}
-              src="/images/hiremantis-full-logo.svg"
+              src="/images/hireblue_logo.png"
               alt="HireBlue"
               className="h-20 md:h-24 w-auto max-w-full dark:invert-[0.15] dark:brightness-110 mb-6"
               priority
